@@ -1,0 +1,78 @@
+controller:
+  image: "jenkins/jenkins"
+  tag: "lts-jdk11"
+  
+  adminUser: "admin"
+  adminPassword: "admin123"
+  
+  resources:
+    requests:
+      cpu: "500m"
+      memory: "1Gi"
+    limits:
+      cpu: "1000m"
+      memory: "2Gi"
+  
+  serviceType: NodePort
+  nodePort: 32000
+  
+  installPlugins:
+    - kubernetes:latest
+    - workflow-aggregator:latest
+    - git:latest
+    - configuration-as-code:latest
+    - prometheus:latest
+    - pipeline-stage-view:latest
+    - blueocean:latest
+    - docker-workflow:latest
+    - helm:latest
+    - kubernetes-cli:latest
+    - pipeline-utility-steps:latest
+  
+  JCasC:
+    defaultConfig: true
+    configScripts:
+      main-config: |
+        jenkins:
+          systemMessage: "Deployment System Jenkins"
+          numExecutors: 2
+          securityRealm:
+            local:
+              allowsSignup: false
+        
+        unclassified:
+          prometheus:
+            path: "/prometheus"
+        
+        jobs:
+          - script: >
+              pipelineJob('sample-app-pipeline') {
+                definition {
+                  cpsScm {
+                    scm {
+                      git {
+                        remote {
+                          url('https://github.com/your-org/sample-app.git')
+                        }
+                        branch('*/main')
+                      }
+                    }
+                    scriptPath('Jenkinsfile')
+                  }
+                }
+              }
+
+  prometheus:
+    enabled: true
+    serviceMonitorNamespace: "infrastructure"
+
+persistence:
+  enabled: true
+  size: "10Gi"
+
+rbac:
+  create: true
+  readSecrets: true
+
+serviceAccount:
+  create: true
