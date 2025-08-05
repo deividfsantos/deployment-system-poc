@@ -1,33 +1,33 @@
 controller:
   image: "jenkins/jenkins"
-  tag: "lts-jdk11"
+  tag: "lts"
   
   adminUser: "admin"
   adminPassword: "admin123"
   
   resources:
     requests:
+      cpu: "200m"
+      memory: "512Mi"
+    limits:
       cpu: "500m"
       memory: "1Gi"
-    limits:
-      cpu: "1000m"
-      memory: "2Gi"
   
   serviceType: NodePort
   nodePort: 32000
   
   installPlugins:
     - kubernetes:latest
-    - workflow-aggregator:latest
+    # - workflow-aggregator:latest
     - git:latest
-    - configuration-as-code:latest
+    # - configuration-as-code:latest
     - prometheus:latest
     - pipeline-stage-view:latest
-    - blueocean:latest
-    - docker-workflow:latest
-    - helm:latest
-    - kubernetes-cli:latest
-    - pipeline-utility-steps:latest
+    # - blueocean:latest
+    # - docker-workflow:latest
+    # - helm:latest
+    # - kubernetes-cli:latest
+    # - pipeline-utility-steps:latest
   
   JCasC:
     defaultConfig: true

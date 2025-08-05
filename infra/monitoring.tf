@@ -4,6 +4,8 @@ resource "helm_release" "prometheus" {
     chart = "kube-prometheus-stack"
     namespace = "infrastructure"
     version = "51.0.0"
+    timeout = 900
+    wait = true
     values = [
         file("${path.module}/values/prometheus-values.yaml")
     ]
@@ -33,8 +35,10 @@ resource "helm_release" "jenkins" {
     namespace = "infrastructure"
     version = "4.3.0"
 
+    timeout = 12000
+    wait = true
     values = [
         file("${path.module}/values/jenkins-values.yaml")
     ]
-    depends_on = [kubernetes_namespace.infrastructure]
+    depends_on = [kubernetes_namespace.infrastructure, helm_release.prometheus]
 }
