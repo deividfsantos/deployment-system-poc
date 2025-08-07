@@ -1,0 +1,3 @@
+➜  deployment-system-poc git:(main) ✗ kubectl get pods --all-namespaces | grep jenkins
+infrastructure         jenkins-0                                                0/2     Init:0/1    0               8m10s
+➜  deployment-system-poc git:(main) ✗ 

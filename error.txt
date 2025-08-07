@@ -3,23 +3,23 @@ Namespace:        infrastructure
 Priority:         0
 Service Account:  jenkins
 Node:             minikube/192.168.49.2
-Start Time:       Thu, 07 Aug 2025 18:45:57 -0300
+Start Time:       Thu, 07 Aug 2025 19:13:55 -0300
 Labels:           app.kubernetes.io/component=jenkins-controller
                   app.kubernetes.io/instance=jenkins
                   app.kubernetes.io/managed-by=Helm
                   app.kubernetes.io/name=jenkins
                   apps.kubernetes.io/pod-index=0
-                  controller-revision-hash=jenkins-5465cb68b9
+                  controller-revision-hash=jenkins-647cb54476
                   statefulset.kubernetes.io/pod-name=jenkins-0
-Annotations:      checksum/config: 83b17a9edc4a578e61708d9c3e9c0278f8ebf8e7333d132922681c72890ffe7d
+Annotations:      checksum/config: 204c78382a170c98bde54850378e5ce58978badc8a495ea1d1ef1b7c9e364acf
 Status:           Pending
-IP:               10.244.0.251
+IP:               10.244.1.3
 IPs:
-  IP:           10.244.0.251
+  IP:           10.244.1.3
 Controlled By:  StatefulSet/jenkins
 Init Containers:
   init:
-    Container ID:  docker://e72acf625bf87a55068dfadbbb68ec095e7a17c857fb1cbd6dade57cc78ff798
+    Container ID:  docker://2073bfc25f10a286dc40479e07fbff4e8bd7fec77a8d758ce3116cdd87518b8d
     Image:         jenkins/jenkins:lts
     Image ID:      docker-pullable://jenkins/jenkins@sha256:0e66af38c9272490ba18757d5d4d41e4ac2160278ae40b69d6da9b5adbe98794
     Port:          <none>
@@ -28,7 +28,7 @@ Init Containers:
       sh
       /var/jenkins_config/apply_config.sh
     State:          Running
-      Started:      Thu, 07 Aug 2025 18:46:00 -0300
+      Started:      Thu, 07 Aug 2025 19:13:58 -0300
     Ready:          False
     Restart Count:  0
     Limits:
@@ -44,7 +44,7 @@ Init Containers:
       /var/jenkins_config from jenkins-config (rw)
       /var/jenkins_home from jenkins-home (rw)
       /var/jenkins_plugins from plugin-dir (rw)
-      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-8swwx (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-px58b (ro)
 Containers:
   jenkins:
     Container ID:  
@@ -82,7 +82,7 @@ Containers:
       /var/jenkins_config from jenkins-config (ro)
       /var/jenkins_home from jenkins-home (rw)
       /var/jenkins_home/casc_configs from sc-config-volume (rw)
-      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-8swwx (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-px58b (ro)
   config-reload:
     Container ID:   
     Image:          kiwigrid/k8s-sidecar:1.15.0
@@ -104,7 +104,7 @@ Containers:
     Mounts:
       /var/jenkins_home from jenkins-home (rw)
       /var/jenkins_home/casc_configs from sc-config-volume (rw)
-      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-8swwx (ro)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-px58b (ro)
 Conditions:
   Type                        Status
   PodReadyToStartContainers   True 
@@ -145,7 +145,7 @@ Volumes:
     Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
     Medium:     
     SizeLimit:  <unset>
-  kube-api-access-8swwx:
+  kube-api-access-px58b:
     Type:                    Projected (a volume that contains injected data from multiple sources)
     TokenExpirationSeconds:  3607
     ConfigMapName:           kube-root-ca.crt
@@ -156,10 +156,10 @@ Node-Selectors:              <none>
 Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
                              node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
 Events:
-  Type    Reason     Age   From               Message
-  ----    ------     ----  ----               -------
-  Normal  Scheduled  17m   default-scheduler  Successfully assigned infrastructure/jenkins-0 to minikube
-  Normal  Pulling    17m   kubelet            Pulling image "jenkins/jenkins:lts"
-  Normal  Pulled     17m   kubelet            Successfully pulled image "jenkins/jenkins:lts" in 2.467s (2.467s including waiting). Image size: 472145155 bytes.
-  Normal  Created    17m   kubelet            Created container: init
-  Normal  Started    17m   kubelet            Started container init
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  6m19s  default-scheduler  Successfully assigned infrastructure/jenkins-0 to minikube
+  Normal  Pulling    6m18s  kubelet            Pulling image "jenkins/jenkins:lts"
+  Normal  Pulled     6m16s  kubelet            Successfully pulled image "jenkins/jenkins:lts" in 2.23s (2.23s including waiting). Image size: 472145155 bytes.
+  Normal  Created    6m16s  kubelet            Created container: init
+  Normal  Started    6m16s  kubelet            Started container init

@@ -17,7 +17,8 @@ Cache miss for: update-center-2.516.1
 Downloaded update-center-2.516.1 from https://eastamerica.cloudflare.jenkins.io/dynamic-stable-2.516.1/update-center.json (attempt 1 of 3)
 Cache miss for: plugin-versions
 Downloaded plugin-versions from https://eastamerica.cloudflare.jenkins.io/current/plugin-versions.json (attempt 1 of 3)
-Couldn't find checksum for kubernetes at version: latest
+Setting checksum for: kubernetes to haMy1kCnsINhNZE2lL6mMsCc6aSJsYAkxuyPbXhYcIc=
+Setting checksum for: kubernetes to haMy1kCnsINhNZE2lL6mMsCc6aSJsYAkxuyPbXhYcIc=
 
 kubernetes depends on: 
 caffeine-api 3.2.0-166.v72a_6d74b_870f
@@ -39,14 +40,12 @@ structs 350.v3b_30f09f2363
 variant 70.va_d9f17f859e0
 kubernetes-credentials 203.v85b_9836a_f44b_
 pipeline-model-extensions 2.2255.v56a_15e805f12
+Skipping dependency workflow-api:1373.v7b_813f10efa_b_ and its sub-dependencies, because there is a higher version defined on the top level - workflow-api:1382.veca_a_efe062fa_
+Skipping dependency workflow-step-api:700.v6e45cb_a_5a_a_21 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
+Skipping dependency structs:350.v3b_30f09f2363 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: caffeine-api to qPtnGeO5nOUw0AKsxmOj3mqnuTiH25y4U4oacEmfRrU=
 
 caffeine-api has no dependencies
-Setting checksum for: workflow-api to 2UZMI/gsMib46YV6cefntzRqcbTxOzIGOC0XFzKLSwU=
-
-workflow-api depends on: 
-workflow-step-api 700.v6e45cb_a_5a_a_21
-scm-api 704.v3ce5c542825a_
 Setting checksum for: workflow-durable-task-step to RastkZk4hFEmECC3A0innaxSCkQyWXdZra2Z5UAlaAA=
 
 workflow-durable-task-step depends on: 
@@ -57,10 +56,9 @@ durable-task 581.v299a_5609d767
 scm-api 703.v72ff4b_259600
 script-security 1369.v9b_98a_4e95b_2d
 structs 338.v848422169819
-Setting checksum for: workflow-step-api to aF2OwAy5In74RffIXwL+bx4s5xXH8qLlt/hj2QnTG+A=
-
-workflow-step-api depends on: 
-structs 338.v848422169819
+Skipping dependency workflow-api:1363.v03f731255494 and its sub-dependencies, because there is a higher version defined on the top level - workflow-api:1382.veca_a_efe062fa_
+Skipping dependency workflow-step-api:686.v603d058a_e148 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: authentication-tokens to gGkHSvaIsQJwNBAEWhE5T7jS9Swswter0wZ+Ot/1/CQ=
 
 authentication-tokens depends on: 
@@ -82,6 +80,8 @@ credentials 1415.v831096eb_5534
 plain-credentials 199.v9f8e1f741799
 ssh-credentials 359.v2191c4cf635f
 structs 350.v3b_30f09f2363
+Skipping dependency workflow-step-api:704.ve4f0967e98fa_ and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
+Skipping dependency structs:350.v3b_30f09f2363 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: credentials to pBIfmsp2JcJpUBzp9ZripeV0knFcApYAMG64XY+Slyg=
 
 credentials depends on: 
@@ -89,7 +89,8 @@ commons-lang3-api 3.17.0-84.vb_b_938040b_078
 configuration-as-code 1850.va_a_8c31d3158b_
 bouncycastle-api 2.30.1.78.1-248.ve27176eb_46cb_
 structs 338.v848422169819
-Skipping dependency configuration-as-code:1850.va_a_8c31d3158b_ and its sub-dependencies, because there is a higher version defined on the top level - configuration-as-code:latest
+Skipping dependency configuration-as-code:1850.va_a_8c31d3158b_ and its sub-dependencies, because there is a higher version defined on the top level - configuration-as-code:1985.vdda_32d0c4ea_b_
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: durable-task to NXFnR12K7pn0bSb3Z1pEoeFBjbIyeqFMSR0mytsVw9E=
 
 durable-task has no dependencies
@@ -117,9 +118,6 @@ Setting checksum for: plain-credentials to teXjXPk607gYqYORbLzfP3hmaZQQpN+SPmopa
 
 plain-credentials depends on: 
 credentials 1408.va_622a_b_f5b_1b_1
-Setting checksum for: structs to niHN8XVr9v/VYvgmAABuYiCqO7hRIZ6XF8OA1/d6cy4=
-
-structs has no dependencies
 Setting checksum for: variant to EuIU6mlEaaRGG1WIHstAdK5d+wR5fbwNrTkPb0vHWq8=
 
 variant has no dependencies
@@ -134,12 +132,6 @@ google-oauth-plugin 1.335.ve6de40e2db_18
 jackson2-api 2.19.0-404.vb_b_0fd2fea_e10
 kubernetes-client-api 7.3.1-256.v788a_0b_787114
 plain-credentials 195.vb_906e9073dee
-Setting checksum for: scm-api to h8fVd/Ts38BjlPspKQeVUJmZ0lG1PQmW7ysulHklJZQ=
-
-scm-api depends on: 
-asm-api 9.7.1-97.v4cc844130d97
-commons-lang3-api 3.17.0-84.vb_b_938040b_078
-structs 338.v848422169819
 Setting checksum for: workflow-support to HGzgMEyNvy0QS0RPv0AEY91gdlZl6WLptAr795noN2k=
 
 workflow-support depends on: 
@@ -148,6 +140,15 @@ workflow-api 1373.v7b_813f10efa_b_
 workflow-step-api 700.v6e45cb_a_5a_a_21
 scm-api 704.v3ce5c542825a_
 script-security 1373.vb_b_4a_a_c26fa_00
+Skipping dependency workflow-api:1373.v7b_813f10efa_b_ and its sub-dependencies, because there is a higher version defined on the top level - workflow-api:1382.veca_a_efe062fa_
+Skipping dependency workflow-step-api:700.v6e45cb_a_5a_a_21 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
+Setting checksum for: scm-api to h8fVd/Ts38BjlPspKQeVUJmZ0lG1PQmW7ysulHklJZQ=
+
+scm-api depends on: 
+asm-api 9.7.1-97.v4cc844130d97
+commons-lang3-api 3.17.0-84.vb_b_938040b_078
+structs 338.v848422169819
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: script-security to Ldjq1nwpAznEIarm0OYuYj0oJAGCXEnxR6nQ5jG/meI=
 
 script-security depends on: 
@@ -221,10 +222,8 @@ Setting checksum for: kubernetes to haMy1kCnsINhNZE2lL6mMsCc6aSJsYAkxuyPbXhYcIc=
 Setting checksum for: kubernetes to haMy1kCnsINhNZE2lL6mMsCc6aSJsYAkxuyPbXhYcIc=
 Setting checksum for: kubernetes to haMy1kCnsINhNZE2lL6mMsCc6aSJsYAkxuyPbXhYcIc=
 Setting checksum for: kubernetes to haMy1kCnsINhNZE2lL6mMsCc6aSJsYAkxuyPbXhYcIc=
-Setting checksum for: kubernetes to haMy1kCnsINhNZE2lL6mMsCc6aSJsYAkxuyPbXhYcIc=
-Setting checksum for: kubernetes to haMy1kCnsINhNZE2lL6mMsCc6aSJsYAkxuyPbXhYcIc=
-Setting checksum for: kubernetes to haMy1kCnsINhNZE2lL6mMsCc6aSJsYAkxuyPbXhYcIc=
-Couldn't find checksum for kubernetes-cli at version: latest
+Setting checksum for: kubernetes-cli to Yuzc77aLTbP9dydVRr6zJ1MnKvzo7utEXgTlJxDxMA8=
+Setting checksum for: kubernetes-cli to Yuzc77aLTbP9dydVRr6zJ1MnKvzo7utEXgTlJxDxMA8=
 
 kubernetes-cli depends on: 
 workflow-step-api 678.v3ee58b_469476
@@ -233,10 +232,7 @@ authentication-tokens 1.119.v50285141b_7e1
 credentials 1405.vb_cda_74a_f8974
 plain-credentials 183.va_de8f1dd5a_2b_
 kubernetes-credentials 190.v03c305394deb_
-Setting checksum for: workflow-step-api to aF2OwAy5In74RffIXwL+bx4s5xXH8qLlt/hj2QnTG+A=
-
-workflow-step-api depends on: 
-structs 338.v848422169819
+Skipping dependency workflow-step-api:678.v3ee58b_469476 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
 Setting checksum for: apache-httpcomponents-client-4-api to zqL2HMcokLli/Ut2fDF3jGyzABW0qHWLTCa2LlHKlTM=
 
 apache-httpcomponents-client-4-api has no dependencies
@@ -252,7 +248,8 @@ commons-lang3-api 3.17.0-84.vb_b_938040b_078
 configuration-as-code 1850.va_a_8c31d3158b_
 bouncycastle-api 2.30.1.78.1-248.ve27176eb_46cb_
 structs 338.v848422169819
-Skipping dependency configuration-as-code:1850.va_a_8c31d3158b_ and its sub-dependencies, because there is a higher version defined on the top level - configuration-as-code:latest
+Skipping dependency configuration-as-code:1850.va_a_8c31d3158b_ and its sub-dependencies, because there is a higher version defined on the top level - configuration-as-code:1985.vdda_32d0c4ea_b_
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: plain-credentials to teXjXPk607gYqYORbLzfP3hmaZQQpN+SPmopaOzDpEg=
 
 plain-credentials depends on: 
@@ -268,9 +265,6 @@ google-oauth-plugin 1.335.ve6de40e2db_18
 jackson2-api 2.19.0-404.vb_b_0fd2fea_e10
 kubernetes-client-api 7.3.1-256.v788a_0b_787114
 plain-credentials 195.vb_906e9073dee
-Setting checksum for: structs to niHN8XVr9v/VYvgmAABuYiCqO7hRIZ6XF8OA1/d6cy4=
-
-structs has no dependencies
 Setting checksum for: commons-lang3-api to ggE+bhkF/h+9aLlBsNqBFeCT6euNSXbpD3UqUtBQFKU=
 
 commons-lang3-api has no dependencies
@@ -323,9 +317,8 @@ Setting checksum for: kubernetes-cli to Yuzc77aLTbP9dydVRr6zJ1MnKvzo7utEXgTlJxDx
 Setting checksum for: kubernetes-cli to Yuzc77aLTbP9dydVRr6zJ1MnKvzo7utEXgTlJxDxMA8=
 Setting checksum for: kubernetes-cli to Yuzc77aLTbP9dydVRr6zJ1MnKvzo7utEXgTlJxDxMA8=
 Setting checksum for: kubernetes-cli to Yuzc77aLTbP9dydVRr6zJ1MnKvzo7utEXgTlJxDxMA8=
-Setting checksum for: kubernetes-cli to Yuzc77aLTbP9dydVRr6zJ1MnKvzo7utEXgTlJxDxMA8=
-Setting checksum for: kubernetes-cli to Yuzc77aLTbP9dydVRr6zJ1MnKvzo7utEXgTlJxDxMA8=
-Couldn't find checksum for workflow-aggregator at version: latest
+Setting checksum for: workflow-aggregator to e5QifBr6AbsmLBSRmtSjM0EvG1HZR8DyGQnsLa/zV9w=
+Setting checksum for: workflow-aggregator to e5QifBr6AbsmLBSRmtSjM0EvG1HZR8DyGQnsLa/zV9w=
 
 workflow-aggregator depends on: 
 pipeline-groovy-lib 744.v5b_556ee7c253
@@ -353,6 +346,9 @@ scm-api 698.v8e3b_c788f0a_6
 script-security 1369.v9b_98a_4e95b_2d
 structs 338.v848422169819
 variant 60.v7290fc0eb_b_cd
+Skipping dependency workflow-api:1336.vee415d95c521 and its sub-dependencies, because there is a higher version defined on the top level - workflow-api:1382.veca_a_efe062fa_
+Skipping dependency workflow-step-api:678.v3ee58b_469476 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: workflow-basic-steps to ShLB3liVMY94rwtUfyBAWnne5iygX8PdbOUsR5xdEYI=
 
 workflow-basic-steps depends on: 
@@ -363,6 +359,9 @@ workflow-step-api 686.v603d058a_e148
 apache-httpcomponents-client-4-api 4.5.14-208.v438351942757
 mailer 489.vd4b_25144138f
 structs 338.v848422169819
+Skipping dependency workflow-api:1336.vee415d95c521 and its sub-dependencies, because there is a higher version defined on the top level - workflow-api:1382.veca_a_efe062fa_
+Skipping dependency workflow-step-api:686.v603d058a_e148 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: workflow-cps to q8qPBlhV6VRdZvrczdTHvjewWitVV9/BJ4UlVPqXVT8=
 
 workflow-cps depends on: 
@@ -375,6 +374,9 @@ scm-api 704.v3ce5c542825a_
 script-security 1373.vb_b_4a_a_c26fa_00
 structs 350.v3b_30f09f2363
 support-core 1739.v0d10c0a_57cb_e
+Skipping dependency workflow-api:1373.v7b_813f10efa_b_ and its sub-dependencies, because there is a higher version defined on the top level - workflow-api:1382.veca_a_efe062fa_
+Skipping dependency workflow-step-api:704.ve4f0967e98fa_ and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
+Skipping dependency structs:350.v3b_30f09f2363 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: workflow-durable-task-step to RastkZk4hFEmECC3A0innaxSCkQyWXdZra2Z5UAlaAA=
 
 workflow-durable-task-step depends on: 
@@ -385,6 +387,9 @@ durable-task 581.v299a_5609d767
 scm-api 703.v72ff4b_259600
 script-security 1369.v9b_98a_4e95b_2d
 structs 338.v848422169819
+Skipping dependency workflow-api:1363.v03f731255494 and its sub-dependencies, because there is a higher version defined on the top level - workflow-api:1382.veca_a_efe062fa_
+Skipping dependency workflow-step-api:686.v603d058a_e148 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: workflow-job to fM/ajlgBwJmRHx3ReM/yRZFZyn2nyJgTppedKdqpJ7E=
 
 workflow-job depends on: 
@@ -392,6 +397,8 @@ ionicons-api 74.v93d5eb_813d5f
 workflow-api 1363.v03f731255494
 workflow-step-api 686.v603d058a_e148
 workflow-support 944.v5a_859593b_98a_
+Skipping dependency workflow-api:1363.v03f731255494 and its sub-dependencies, because there is a higher version defined on the top level - workflow-api:1382.veca_a_efe062fa_
+Skipping dependency workflow-step-api:686.v603d058a_e148 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
 Setting checksum for: workflow-multibranch to mAQk6cWqo1YBAgbuoIx11FD2UlZUtyqDvESWEya//eU=
 
 workflow-multibranch depends on: 
@@ -406,6 +413,8 @@ branch-api 2.1226.ve1e7e0b_4b_95f
 cloudbees-folder 6.1026.ve06dfa_cf31c3
 scm-api 704.v3ce5c542825a_
 script-security 1373.vb_b_4a_a_c26fa_00
+Skipping dependency workflow-api:1373.v7b_813f10efa_b_ and its sub-dependencies, because there is a higher version defined on the top level - workflow-api:1382.veca_a_efe062fa_
+Skipping dependency workflow-step-api:700.v6e45cb_a_5a_a_21 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
 Setting checksum for: pipeline-build-step to F81CtKYJ06lk+SMY0Mnl5L3nAFgM2Qptf+/RalsqP3k=
 
 pipeline-build-step depends on: 
@@ -414,6 +423,9 @@ workflow-step-api 686.v603d058a_e148
 workflow-support 944.v5a_859593b_98a_
 script-security 1369.v9b_98a_4e95b_2d
 structs 338.v848422169819
+Skipping dependency workflow-api:1363.v03f731255494 and its sub-dependencies, because there is a higher version defined on the top level - workflow-api:1382.veca_a_efe062fa_
+Skipping dependency workflow-step-api:686.v603d058a_e148 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: pipeline-input-step to epei/owE7UkVIvmd09a3ReTg9OVk/5Aw3kgSNAiPfu4=
 
 pipeline-input-step depends on: 
@@ -422,16 +434,23 @@ workflow-step-api 678.v3ee58b_469476
 workflow-support 936.v9fa_77211ca_e1
 credentials 1405.vb_cda_74a_f8974
 structs 338.v848422169819
+Skipping dependency workflow-api:1336.vee415d95c521 and its sub-dependencies, because there is a higher version defined on the top level - workflow-api:1382.veca_a_efe062fa_
+Skipping dependency workflow-step-api:678.v3ee58b_469476 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: pipeline-milestone-step to B09/s3piUi3xA4z0NkPobRhb3KQ1I4XmeHma9NtbxNE=
 
 pipeline-milestone-step depends on: 
 workflow-api 1363.v03f731255494
 workflow-step-api 686.v603d058a_e148
+Skipping dependency workflow-api:1363.v03f731255494 and its sub-dependencies, because there is a higher version defined on the top level - workflow-api:1382.veca_a_efe062fa_
+Skipping dependency workflow-step-api:686.v603d058a_e148 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
 Setting checksum for: pipeline-stage-step to 5O1kOP9gcxVrxCadNiEps0CZoNp/Krsnmy4559wKdco=
 
 pipeline-stage-step depends on: 
 workflow-api 1336.vee415d95c521
 workflow-step-api 678.v3ee58b_469476
+Skipping dependency workflow-api:1336.vee415d95c521 and its sub-dependencies, because there is a higher version defined on the top level - workflow-api:1382.veca_a_efe062fa_
+Skipping dependency workflow-step-api:678.v3ee58b_469476 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
 Setting checksum for: pipeline-model-definition to CoMl+++6VjavOd/0u4tRrUmlJS5GfLCp8ao9LoDP1PA=
 
 pipeline-model-definition depends on: 
@@ -454,19 +473,13 @@ structs 338.v848422169819
 pipeline-model-api 2.2258.v4e96d2b_da_f9b_
 pipeline-model-extensions 2.2258.v4e96d2b_da_f9b_
 pipeline-stage-tags-metadata 2.2258.v4e96d2b_da_f9b_
-Setting checksum for: workflow-api to 2UZMI/gsMib46YV6cefntzRqcbTxOzIGOC0XFzKLSwU=
-
-workflow-api depends on: 
-workflow-step-api 700.v6e45cb_a_5a_a_21
-scm-api 704.v3ce5c542825a_
+Skipping dependency workflow-api:1363.v03f731255494 and its sub-dependencies, because there is a higher version defined on the top level - workflow-api:1382.veca_a_efe062fa_
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: workflow-scm-step to cv6cuZ9I0NEjOygShZGZWSM7e2D6xirzOhE3MlojUBY=
 
 workflow-scm-step depends on: 
 workflow-step-api 678.v3ee58b_469476
-Setting checksum for: workflow-step-api to aF2OwAy5In74RffIXwL+bx4s5xXH8qLlt/hj2QnTG+A=
-
-workflow-step-api depends on: 
-structs 338.v848422169819
+Skipping dependency workflow-step-api:678.v3ee58b_469476 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
 Setting checksum for: cloudbees-folder to jc9dOFLyhGI8qcTsH7mw4yK/kc5vwLEEUkhILrJSlSc=
 
 cloudbees-folder depends on: 
@@ -478,13 +491,11 @@ scm-api depends on:
 asm-api 9.7.1-97.v4cc844130d97
 commons-lang3-api 3.17.0-84.vb_b_938040b_078
 structs 338.v848422169819
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: script-security to Ldjq1nwpAznEIarm0OYuYj0oJAGCXEnxR6nQ5jG/meI=
 
 script-security depends on: 
 caffeine-api 3.1.8-133.v17b_1ff2e0599
-Setting checksum for: structs to niHN8XVr9v/VYvgmAABuYiCqO7hRIZ6XF8OA1/d6cy4=
-
-structs has no dependencies
 Setting checksum for: variant to EuIU6mlEaaRGG1WIHstAdK5d+wR5fbwNrTkPb0vHWq8=
 
 variant has no dependencies
@@ -513,6 +524,8 @@ workflow-api 1373.v7b_813f10efa_b_
 workflow-step-api 700.v6e45cb_a_5a_a_21
 scm-api 704.v3ce5c542825a_
 script-security 1373.vb_b_4a_a_c26fa_00
+Skipping dependency workflow-api:1373.v7b_813f10efa_b_ and its sub-dependencies, because there is a higher version defined on the top level - workflow-api:1382.veca_a_efe062fa_
+Skipping dependency workflow-step-api:700.v6e45cb_a_5a_a_21 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
 Setting checksum for: durable-task to NXFnR12K7pn0bSb3Z1pEoeFBjbIyeqFMSR0mytsVw9E=
 
 durable-task has no dependencies
@@ -523,7 +536,8 @@ commons-lang3-api 3.17.0-84.vb_b_938040b_078
 configuration-as-code 1850.va_a_8c31d3158b_
 bouncycastle-api 2.30.1.78.1-248.ve27176eb_46cb_
 structs 338.v848422169819
-Skipping dependency configuration-as-code:1850.va_a_8c31d3158b_ and its sub-dependencies, because there is a higher version defined on the top level - configuration-as-code:latest
+Skipping dependency configuration-as-code:1850.va_a_8c31d3158b_ and its sub-dependencies, because there is a higher version defined on the top level - configuration-as-code:1985.vdda_32d0c4ea_b_
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: credentials-binding to gJqh6lBz9tM+7eBxY76SqTECq3WSwxCXwpyQVP79goE=
 
 credentials-binding depends on: 
@@ -532,6 +546,8 @@ credentials 1415.v831096eb_5534
 plain-credentials 199.v9f8e1f741799
 ssh-credentials 359.v2191c4cf635f
 structs 350.v3b_30f09f2363
+Skipping dependency workflow-step-api:704.ve4f0967e98fa_ and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
+Skipping dependency structs:350.v3b_30f09f2363 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: pipeline-model-api to ryAnSzWFcgvXAtJYWO05c9PJuJe4LtywYSIPzv4RDQI=
 
 pipeline-model-api depends on: 
@@ -539,6 +555,8 @@ joda-time-api 2.13.1-115.va_6b_5f8efb_1d8
 workflow-step-api 686.v603d058a_e148
 jackson2-api 2.17.0-389.va_5c7e45cd806
 structs 338.v848422169819
+Skipping dependency workflow-step-api:686.v603d058a_e148 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: pipeline-model-extensions to LSxQrjHfu89+qUsf1zOMA8CdA7q7FKroYzoY+27Rbxg=
 
 pipeline-model-extensions depends on: 
@@ -552,6 +570,7 @@ Setting checksum for: pipeline-stage-tags-metadata to iYOWI6MFeI+rDf19DhcgrBO4Ra
 
 pipeline-stage-tags-metadata depends on: 
 workflow-api 1363.v03f731255494
+Skipping dependency workflow-api:1363.v03f731255494 and its sub-dependencies, because there is a higher version defined on the top level - workflow-api:1382.veca_a_efe062fa_
 Setting checksum for: asm-api to OxPBHrVzqxTdmGJ+7u2E3srJB3ObydDQTuMAGGJq/Ek=
 
 asm-api has no dependencies
@@ -654,10 +673,8 @@ Setting checksum for: workflow-aggregator to e5QifBr6AbsmLBSRmtSjM0EvG1HZR8DyGQn
 Setting checksum for: workflow-aggregator to e5QifBr6AbsmLBSRmtSjM0EvG1HZR8DyGQnsLa/zV9w=
 Setting checksum for: workflow-aggregator to e5QifBr6AbsmLBSRmtSjM0EvG1HZR8DyGQnsLa/zV9w=
 Setting checksum for: workflow-aggregator to e5QifBr6AbsmLBSRmtSjM0EvG1HZR8DyGQnsLa/zV9w=
-Setting checksum for: workflow-aggregator to e5QifBr6AbsmLBSRmtSjM0EvG1HZR8DyGQnsLa/zV9w=
-Setting checksum for: workflow-aggregator to e5QifBr6AbsmLBSRmtSjM0EvG1HZR8DyGQnsLa/zV9w=
-Setting checksum for: workflow-aggregator to e5QifBr6AbsmLBSRmtSjM0EvG1HZR8DyGQnsLa/zV9w=
-Couldn't find checksum for git at version: latest
+Setting checksum for: git to IPcSG3z9odMbDER7PjWY3J5fBP1f5+nnhBIqSWwuXOo=
+Setting checksum for: git to IPcSG3z9odMbDER7PjWY3J5fBP1f5+nnhBIqSWwuXOo=
 
 git depends on: 
 configuration-as-code 1903.v004d55388f30
@@ -675,15 +692,14 @@ script-security 1369.v9b_98a_4e95b_2d
 ssh-credentials 349.vb_8b_6b_9709f5b_
 structs 338.v848422169819
 token-macro 400.v35420b_922dcb_
-Skipping dependency configuration-as-code:1903.v004d55388f30 and its sub-dependencies, because there is a higher version defined on the top level - configuration-as-code:latest
+Skipping dependency configuration-as-code:1903.v004d55388f30 and its sub-dependencies, because there is a higher version defined on the top level - configuration-as-code:1985.vdda_32d0c4ea_b_
+Skipping dependency workflow-step-api:678.v3ee58b_469476 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: workflow-scm-step to cv6cuZ9I0NEjOygShZGZWSM7e2D6xirzOhE3MlojUBY=
 
 workflow-scm-step depends on: 
 workflow-step-api 678.v3ee58b_469476
-Setting checksum for: workflow-step-api to aF2OwAy5In74RffIXwL+bx4s5xXH8qLlt/hj2QnTG+A=
-
-workflow-step-api depends on: 
-structs 338.v848422169819
+Skipping dependency workflow-step-api:678.v3ee58b_469476 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
 Setting checksum for: credentials-binding to gJqh6lBz9tM+7eBxY76SqTECq3WSwxCXwpyQVP79goE=
 
 credentials-binding depends on: 
@@ -692,6 +708,8 @@ credentials 1415.v831096eb_5534
 plain-credentials 199.v9f8e1f741799
 ssh-credentials 359.v2191c4cf635f
 structs 350.v3b_30f09f2363
+Skipping dependency workflow-step-api:704.ve4f0967e98fa_ and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
+Skipping dependency structs:350.v3b_30f09f2363 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: credentials to pBIfmsp2JcJpUBzp9ZripeV0knFcApYAMG64XY+Slyg=
 
 credentials depends on: 
@@ -699,7 +717,8 @@ commons-lang3-api 3.17.0-84.vb_b_938040b_078
 configuration-as-code 1850.va_a_8c31d3158b_
 bouncycastle-api 2.30.1.78.1-248.ve27176eb_46cb_
 structs 338.v848422169819
-Skipping dependency configuration-as-code:1850.va_a_8c31d3158b_ and its sub-dependencies, because there is a higher version defined on the top level - configuration-as-code:latest
+Skipping dependency configuration-as-code:1850.va_a_8c31d3158b_ and its sub-dependencies, because there is a higher version defined on the top level - configuration-as-code:1985.vdda_32d0c4ea_b_
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: git-client to 9fGrriHHgtwrg6znup4YMm/S3GFYZaGBuCtdLS8JbS0=
 
 git-client depends on: 
@@ -713,7 +732,8 @@ credentials 1417.vd854994a_f6b_e
 script-security 1373.vb_b_4a_a_c26fa_00
 ssh-credentials 359.v2191c4cf635f
 structs 350.v3b_30f09f2363
-Skipping dependency configuration-as-code:1971.vf9280461ea_89 and its sub-dependencies, because there is a higher version defined on the top level - configuration-as-code:latest
+Skipping dependency configuration-as-code:1971.vf9280461ea_89 and its sub-dependencies, because there is a higher version defined on the top level - configuration-as-code:1985.vdda_32d0c4ea_b_
+Skipping dependency structs:350.v3b_30f09f2363 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: mailer to ++dUlaYKr7lJdxyMvskkbkGcDEeQD20kQyMPvyYIzjA=
 
 mailer depends on: 
@@ -726,6 +746,7 @@ scm-api depends on:
 asm-api 9.7.1-97.v4cc844130d97
 commons-lang3-api 3.17.0-84.vb_b_938040b_078
 structs 338.v848422169819
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: script-security to Ldjq1nwpAznEIarm0OYuYj0oJAGCXEnxR6nQ5jG/meI=
 
 script-security depends on: 
@@ -737,9 +758,6 @@ bouncycastle-api 2.30.1.79-254.vfdb_814e7791e
 credentials 1405.vb_cda_74a_f8974
 trilead-api 2.147.vb_73cc728a_32e
 variant 60.v7290fc0eb_b_cd
-Setting checksum for: structs to niHN8XVr9v/VYvgmAABuYiCqO7hRIZ6XF8OA1/d6cy4=
-
-structs has no dependencies
 Setting checksum for: plain-credentials to teXjXPk607gYqYORbLzfP3hmaZQQpN+SPmopaOzDpEg=
 
 plain-credentials depends on: 
@@ -818,9 +836,8 @@ Setting checksum for: git to IPcSG3z9odMbDER7PjWY3J5fBP1f5+nnhBIqSWwuXOo=
 Setting checksum for: git to IPcSG3z9odMbDER7PjWY3J5fBP1f5+nnhBIqSWwuXOo=
 Setting checksum for: git to IPcSG3z9odMbDER7PjWY3J5fBP1f5+nnhBIqSWwuXOo=
 Setting checksum for: git to IPcSG3z9odMbDER7PjWY3J5fBP1f5+nnhBIqSWwuXOo=
-Setting checksum for: git to IPcSG3z9odMbDER7PjWY3J5fBP1f5+nnhBIqSWwuXOo=
-Setting checksum for: git to IPcSG3z9odMbDER7PjWY3J5fBP1f5+nnhBIqSWwuXOo=
-Couldn't find checksum for configuration-as-code at version: latest
+Setting checksum for: configuration-as-code to XA9QvNmGwDdMbLeOnLrHixm9YVPwVGHKOHsNoira3KA=
+Setting checksum for: configuration-as-code to XA9QvNmGwDdMbLeOnLrHixm9YVPwVGHKOHsNoira3KA=
 
 configuration-as-code depends on: 
 caffeine-api 3.2.0-166.v72a_6d74b_870f
@@ -874,18 +891,11 @@ commons-text-api 1.13.0-153.v91dcd89e2a_22
 workflow-api 1366.vf1fb_e1a_f6b_22
 workflow-step-api 700.v6e45cb_a_5a_a_21
 workflow-support 963.va_600813d04a_a_
+Skipping dependency workflow-api:1366.vf1fb_e1a_f6b_22 and its sub-dependencies, because there is a higher version defined on the top level - workflow-api:1382.veca_a_efe062fa_
+Skipping dependency workflow-step-api:700.v6e45cb_a_5a_a_21 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
 Setting checksum for: antisamy-markup-formatter to KbR2V5fybERXSicy3fnX2Y6gKDKVNSSX3Z7vhK7QEC8=
 
 antisamy-markup-formatter has no dependencies
-Setting checksum for: workflow-api to 2UZMI/gsMib46YV6cefntzRqcbTxOzIGOC0XFzKLSwU=
-
-workflow-api depends on: 
-workflow-step-api 700.v6e45cb_a_5a_a_21
-scm-api 704.v3ce5c542825a_
-Setting checksum for: workflow-step-api to aF2OwAy5In74RffIXwL+bx4s5xXH8qLlt/hj2QnTG+A=
-
-workflow-step-api depends on: 
-structs 338.v848422169819
 Setting checksum for: workflow-support to HGzgMEyNvy0QS0RPv0AEY91gdlZl6WLptAr795noN2k=
 
 workflow-support depends on: 
@@ -894,15 +904,15 @@ workflow-api 1373.v7b_813f10efa_b_
 workflow-step-api 700.v6e45cb_a_5a_a_21
 scm-api 704.v3ce5c542825a_
 script-security 1373.vb_b_4a_a_c26fa_00
+Skipping dependency workflow-api:1373.v7b_813f10efa_b_ and its sub-dependencies, because there is a higher version defined on the top level - workflow-api:1382.veca_a_efe062fa_
+Skipping dependency workflow-step-api:700.v6e45cb_a_5a_a_21 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
 Setting checksum for: scm-api to h8fVd/Ts38BjlPspKQeVUJmZ0lG1PQmW7ysulHklJZQ=
 
 scm-api depends on: 
 asm-api 9.7.1-97.v4cc844130d97
 commons-lang3-api 3.17.0-84.vb_b_938040b_078
 structs 338.v848422169819
-Setting checksum for: structs to niHN8XVr9v/VYvgmAABuYiCqO7hRIZ6XF8OA1/d6cy4=
-
-structs has no dependencies
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: script-security to Ldjq1nwpAznEIarm0OYuYj0oJAGCXEnxR6nQ5jG/meI=
 
 script-security depends on: 
@@ -925,10 +935,8 @@ Setting checksum for: configuration-as-code to XA9QvNmGwDdMbLeOnLrHixm9YVPwVGHKO
 Setting checksum for: configuration-as-code to XA9QvNmGwDdMbLeOnLrHixm9YVPwVGHKOHsNoira3KA=
 Setting checksum for: configuration-as-code to XA9QvNmGwDdMbLeOnLrHixm9YVPwVGHKOHsNoira3KA=
 Setting checksum for: configuration-as-code to XA9QvNmGwDdMbLeOnLrHixm9YVPwVGHKOHsNoira3KA=
-Setting checksum for: configuration-as-code to XA9QvNmGwDdMbLeOnLrHixm9YVPwVGHKOHsNoira3KA=
-Setting checksum for: configuration-as-code to XA9QvNmGwDdMbLeOnLrHixm9YVPwVGHKOHsNoira3KA=
-Setting checksum for: configuration-as-code to XA9QvNmGwDdMbLeOnLrHixm9YVPwVGHKOHsNoira3KA=
-Couldn't find checksum for job-dsl at version: latest
+Setting checksum for: job-dsl to RAKOS8XjARGj7Z/gnzF3hnTe1y8QPqa4asMqh1vHiCc=
+Setting checksum for: job-dsl to RAKOS8XjARGj7Z/gnzF3hnTe1y8QPqa4asMqh1vHiCc=
 
 job-dsl depends on: 
 configuration-as-code 1963.v24e046127a_3f
@@ -939,6 +947,7 @@ script-security 1373.vb_b_4a_a_c26fa_00
 structs 350.v3b_30f09f2363
 vsphere-cloud 2.27
 Skipping dependency configuration-as-code:1963.v24e046127a_3f and its sub-dependencies, because there is a higher version defined on the top level - configuration-as-code:1985.vdda_32d0c4ea_b_
+Skipping dependency structs:350.v3b_30f09f2363 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: branch-api to /65hNCEDc2le57XY6Z1D6RXqCu+yuck5+lWhfTen9nY=
 
 branch-api depends on: 
@@ -956,9 +965,6 @@ Setting checksum for: script-security to Ldjq1nwpAznEIarm0OYuYj0oJAGCXEnxR6nQ5jG
 
 script-security depends on: 
 caffeine-api 3.1.8-133.v17b_1ff2e0599
-Setting checksum for: structs to niHN8XVr9v/VYvgmAABuYiCqO7hRIZ6XF8OA1/d6cy4=
-
-structs has no dependencies
 Setting checksum for: caffeine-api to qPtnGeO5nOUw0AKsxmOj3mqnuTiH25y4U4oacEmfRrU=
 
 caffeine-api has no dependencies
@@ -975,6 +981,7 @@ scm-api depends on:
 asm-api 9.7.1-97.v4cc844130d97
 commons-lang3-api 3.17.0-84.vb_b_938040b_078
 structs 338.v848422169819
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
 Setting checksum for: asm-api to OxPBHrVzqxTdmGJ+7u2E3srJB3ObydDQTuMAGGJq/Ek=
 
 asm-api has no dependencies
@@ -990,7 +997,42 @@ Setting checksum for: job-dsl to RAKOS8XjARGj7Z/gnzF3hnTe1y8QPqa4asMqh1vHiCc=
 Setting checksum for: job-dsl to RAKOS8XjARGj7Z/gnzF3hnTe1y8QPqa4asMqh1vHiCc=
 Setting checksum for: job-dsl to RAKOS8XjARGj7Z/gnzF3hnTe1y8QPqa4asMqh1vHiCc=
 Setting checksum for: job-dsl to RAKOS8XjARGj7Z/gnzF3hnTe1y8QPqa4asMqh1vHiCc=
-Setting checksum for: job-dsl to RAKOS8XjARGj7Z/gnzF3hnTe1y8QPqa4asMqh1vHiCc=
+Setting checksum for: workflow-step-api to aF2OwAy5In74RffIXwL+bx4s5xXH8qLlt/hj2QnTG+A=
+Setting checksum for: workflow-step-api to aF2OwAy5In74RffIXwL+bx4s5xXH8qLlt/hj2QnTG+A=
+
+workflow-step-api depends on: 
+structs 338.v848422169819
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
+Setting checksum for: workflow-step-api to aF2OwAy5In74RffIXwL+bx4s5xXH8qLlt/hj2QnTG+A=
+Setting checksum for: workflow-api to 2UZMI/gsMib46YV6cefntzRqcbTxOzIGOC0XFzKLSwU=
+Setting checksum for: workflow-api to 2UZMI/gsMib46YV6cefntzRqcbTxOzIGOC0XFzKLSwU=
+
+workflow-api depends on: 
+workflow-step-api 700.v6e45cb_a_5a_a_21
+scm-api 704.v3ce5c542825a_
+Skipping dependency workflow-step-api:700.v6e45cb_a_5a_a_21 and its sub-dependencies, because there is a higher version defined on the top level - workflow-step-api:706.v518c5dcb_24c0
+Setting checksum for: scm-api to h8fVd/Ts38BjlPspKQeVUJmZ0lG1PQmW7ysulHklJZQ=
+
+scm-api depends on: 
+asm-api 9.7.1-97.v4cc844130d97
+commons-lang3-api 3.17.0-84.vb_b_938040b_078
+structs 338.v848422169819
+Skipping dependency structs:338.v848422169819 and its sub-dependencies, because there is a higher version defined on the top level - structs:353.v261ea_40a_80fb_
+Setting checksum for: asm-api to OxPBHrVzqxTdmGJ+7u2E3srJB3ObydDQTuMAGGJq/Ek=
+
+asm-api has no dependencies
+Setting checksum for: commons-lang3-api to ggE+bhkF/h+9aLlBsNqBFeCT6euNSXbpD3UqUtBQFKU=
+
+commons-lang3-api has no dependencies
+Setting checksum for: workflow-api to 2UZMI/gsMib46YV6cefntzRqcbTxOzIGOC0XFzKLSwU=
+Setting checksum for: workflow-api to 2UZMI/gsMib46YV6cefntzRqcbTxOzIGOC0XFzKLSwU=
+Setting checksum for: workflow-api to 2UZMI/gsMib46YV6cefntzRqcbTxOzIGOC0XFzKLSwU=
+Setting checksum for: workflow-api to 2UZMI/gsMib46YV6cefntzRqcbTxOzIGOC0XFzKLSwU=
+Setting checksum for: structs to niHN8XVr9v/VYvgmAABuYiCqO7hRIZ6XF8OA1/d6cy4=
+Setting checksum for: structs to niHN8XVr9v/VYvgmAABuYiCqO7hRIZ6XF8OA1/d6cy4=
+
+structs has no dependencies
+Setting checksum for: structs to niHN8XVr9v/VYvgmAABuYiCqO7hRIZ6XF8OA1/d6cy4=
 Will install new plugin kubernetes 4358.vcfd9c5a_0a_f51
 Will install new plugin json-api 20250517-163.v1c5da_e99c775
 Will install new plugin pipeline-milestone-step 138.v78ca_76831a_43
@@ -1058,228 +1100,157 @@ Will install new plugin prism-api 1.30.0-1
 Will install new plugin script-security 1378.vf25626395f49
 Will install new plugin branch-api 2.1235.v04e86c7ce54c
 Will install new plugin workflow-api 1382.veca_a_efe062fa_
-Will use url: https://updates.jenkins.io/download/plugins/pipeline-groovy-lib/752.vdddedf804e72/pipeline-groovy-lib.hpi to download pipeline-groovy-lib plugin
 Will use url: https://updates.jenkins.io/download/plugins/job-dsl/1.93/job-dsl.hpi to download job-dsl plugin
 Will use url: https://updates.jenkins.io/download/plugins/instance-identity/203.v15e81a_1b_7a_38/instance-identity.hpi to download instance-identity plugin
 Will use url: https://updates.jenkins.io/download/plugins/antisamy-markup-formatter/173.v680e3a_b_69ff3/antisamy-markup-formatter.hpi to download antisamy-markup-formatter plugin
+Will use url: https://updates.jenkins.io/download/plugins/pipeline-groovy-lib/752.vdddedf804e72/pipeline-groovy-lib.hpi to download pipeline-groovy-lib plugin
 Will use url: https://updates.jenkins.io/download/plugins/workflow-scm-step/437.v05a_f66b_e5ef8/workflow-scm-step.hpi to download workflow-scm-step plugin
-Will use url: https://updates.jenkins.io/download/plugins/mailer/515.vd788654779b_1/mailer.hpi to download mailer plugin
-Will use url: https://updates.jenkins.io/download/plugins/metrics/4.2.32-481.v75f035fdc894/metrics.hpi to download metrics plugin
-Will use url: https://updates.jenkins.io/download/plugins/pipeline-milestone-step/138.v78ca_76831a_43/pipeline-milestone-step.hpi to download pipeline-milestone-step plugin
-Will use url: https://updates.jenkins.io/download/plugins/pipeline-model-api/2.2258.v4e96d2b_da_f9b_/pipeline-model-api.hpi to download pipeline-model-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/ionicons-api/94.vcc3065403257/ionicons-api.hpi to download ionicons-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/jakarta-mail-api/2.1.3-2/jakarta-mail-api.hpi to download jakarta-mail-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/jackson2-api/2.19.2-408.v18248a_324cfe/jackson2-api.hpi to download jackson2-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/mina-sshd-api-core/2.15.0-161.vb_200831a_c15b_/mina-sshd-api-core.hpi to download mina-sshd-api-core plugin
-Will use url: https://updates.jenkins.io/download/plugins/credentials/1419.v2337d1ceceef/credentials.hpi to download credentials plugin
-Will use url: https://updates.jenkins.io/download/plugins/plugin-util-api/6.1.0/plugin-util-api.hpi to download plugin-util-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/javax-activation-api/1.2.0-8/javax-activation-api.hpi to download javax-activation-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/workflow-step-api/706.v518c5dcb_24c0/workflow-step-api.hpi to download workflow-step-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/commons-text-api/1.14.0-194.v804a_dc3a_1b_d8/commons-text-api.hpi to download commons-text-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/pipeline-model-extensions/2.2258.v4e96d2b_da_f9b_/pipeline-model-extensions.hpi to download pipeline-model-extensions plugin
-Will use url: https://updates.jenkins.io/download/plugins/okhttp-api/4.11.0-189.v976fa_d3379d6/okhttp-api.hpi to download okhttp-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/variant/70.va_d9f17f859e0/variant.hpi to download variant plugin
-Will use url: https://updates.jenkins.io/download/plugins/pipeline-build-step/571.v08a_fffd4b_0ce/pipeline-build-step.hpi to download pipeline-build-step plugin
-Will use url: https://updates.jenkins.io/download/plugins/gson-api/2.13.1-153.vb_3d0c48a_a_b_4a_/gson-api.hpi to download gson-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/kubernetes/4358.vcfd9c5a_0a_f51/kubernetes.hpi to download kubernetes plugin
-Will use url: https://updates.jenkins.io/download/plugins/script-security/1378.vf25626395f49/script-security.hpi to download script-security plugin
-Will use url: https://updates.jenkins.io/download/plugins/pipeline-stage-tags-metadata/2.2258.v4e96d2b_da_f9b_/pipeline-stage-tags-metadata.hpi to download pipeline-stage-tags-metadata plugin
-Will use url: https://updates.jenkins.io/download/plugins/kubernetes-client-api/7.3.1-256.v788a_0b_787114/kubernetes-client-api.hpi to download kubernetes-client-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/snakeyaml-api/2.3-125.v4d77857a_b_402/snakeyaml-api.hpi to download snakeyaml-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/prism-api/1.30.0-1/prism-api.hpi to download prism-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/caffeine-api/3.2.2-178.v353b_8428ed56/caffeine-api.hpi to download caffeine-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/workflow-support/976.vb_d9493c2eb_09/workflow-support.hpi to download workflow-support plugin
-Will use url: https://updates.jenkins.io/download/plugins/scm-api/707.v749f968369d4/scm-api.hpi to download scm-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/jakarta-activation-api/2.1.3-2/jakarta-activation-api.hpi to download jakarta-activation-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/workflow-cps/4177.vb_203fe395445/workflow-cps.hpi to download workflow-cps plugin
-Will use url: https://updates.jenkins.io/download/plugins/workflow-api/1382.veca_a_efe062fa_/workflow-api.hpi to download workflow-api plugin
 Will use url: https://updates.jenkins.io/download/plugins/pipeline-input-step/534.v352f0a_e98918/pipeline-input-step.hpi to download pipeline-input-step plugin
+Will use url: https://updates.jenkins.io/download/plugins/mailer/515.vd788654779b_1/mailer.hpi to download mailer plugin
+Will use url: https://updates.jenkins.io/download/plugins/javax-activation-api/1.2.0-8/javax-activation-api.hpi to download javax-activation-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/ionicons-api/94.vcc3065403257/ionicons-api.hpi to download ionicons-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/jackson2-api/2.19.2-408.v18248a_324cfe/jackson2-api.hpi to download jackson2-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/workflow-multibranch/810.v6b_6e77da_7058/workflow-multibranch.hpi to download workflow-multibranch plugin
+Will use url: https://updates.jenkins.io/download/plugins/kubernetes/4358.vcfd9c5a_0a_f51/kubernetes.hpi to download kubernetes plugin
+Will use url: https://updates.jenkins.io/download/plugins/pipeline-model-api/2.2258.v4e96d2b_da_f9b_/pipeline-model-api.hpi to download pipeline-model-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/jakarta-mail-api/2.1.3-2/jakarta-mail-api.hpi to download jakarta-mail-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/plugin-util-api/6.1.0/plugin-util-api.hpi to download plugin-util-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/pipeline-model-extensions/2.2258.v4e96d2b_da_f9b_/pipeline-model-extensions.hpi to download pipeline-model-extensions plugin
 Will use url: https://updates.jenkins.io/download/plugins/plain-credentials/199.v9f8e1f741799/plain-credentials.hpi to download plain-credentials plugin
-Will use url: https://updates.jenkins.io/download/plugins/apache-httpcomponents-client-4-api/4.5.14-269.vfa_2321039a_83/apache-httpcomponents-client-4-api.hpi to download apache-httpcomponents-client-4-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/json-api/20250517-163.v1c5da_e99c775/json-api.hpi to download json-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/pipeline-model-definition/2.2258.v4e96d2b_da_f9b_/pipeline-model-definition.hpi to download pipeline-model-definition plugin
+Will use url: https://updates.jenkins.io/download/plugins/bouncycastle-api/2.30.1.81-264.v95c79c0e772c/bouncycastle-api.hpi to download bouncycastle-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/workflow-step-api/706.v518c5dcb_24c0/workflow-step-api.hpi to download workflow-step-api plugin
 Will use url: https://updates.jenkins.io/download/plugins/configuration-as-code/1985.vdda_32d0c4ea_b_/configuration-as-code.hpi to download configuration-as-code plugin
-Will use url: https://updates.jenkins.io/download/plugins/display-url-api/2.217.va_6b_de84cc74b_/display-url-api.hpi to download display-url-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/workflow-aggregator/608.v67378e9d3db_1/workflow-aggregator.hpi to download workflow-aggregator plugin
-Will use url: https://updates.jenkins.io/download/plugins/kubernetes-cli/1.364.vadef8cb8b823/kubernetes-cli.hpi to download kubernetes-cli plugin
-Will use url: https://updates.jenkins.io/download/plugins/git-client/6.3.0/git-client.hpi to download git-client plugin
+Will use url: https://updates.jenkins.io/download/plugins/credentials/1419.v2337d1ceceef/credentials.hpi to download credentials plugin
+Will use url: https://updates.jenkins.io/download/plugins/joda-time-api/2.14.0-149.v1c3ce991d1b_9/joda-time-api.hpi to download joda-time-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/metrics/4.2.32-481.v75f035fdc894/metrics.hpi to download metrics plugin
 Will use url: https://updates.jenkins.io/download/plugins/asm-api/9.8-163.vb_2a_96d3f9c3c/asm-api.hpi to download asm-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/commons-lang3-api/3.18.0-98.v3a_674c06072d/commons-lang3-api.hpi to download commons-lang3-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/git-client/6.3.0/git-client.hpi to download git-client plugin
+Will use url: https://updates.jenkins.io/download/plugins/workflow-support/976.vb_d9493c2eb_09/workflow-support.hpi to download workflow-support plugin
 Will use url: https://updates.jenkins.io/download/plugins/mina-sshd-api-common/2.15.0-161.vb_200831a_c15b_/mina-sshd-api-common.hpi to download mina-sshd-api-common plugin
 Will use url: https://updates.jenkins.io/download/plugins/jaxb/2.3.9-133.vb_ec76a_73f706/jaxb.hpi to download jaxb plugin
-Will use url: https://updates.jenkins.io/download/plugins/branch-api/2.1235.v04e86c7ce54c/branch-api.hpi to download branch-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/workflow-aggregator/608.v67378e9d3db_1/workflow-aggregator.hpi to download workflow-aggregator plugin
 Will use url: https://updates.jenkins.io/download/plugins/workflow-durable-task-step/1446.v3efd13441220/workflow-durable-task-step.hpi to download workflow-durable-task-step plugin
-Will use url: https://updates.jenkins.io/download/plugins/git/5.7.0/git.hpi to download git plugin
-Will use url: https://updates.jenkins.io/download/plugins/bouncycastle-api/2.30.1.81-264.v95c79c0e772c/bouncycastle-api.hpi to download bouncycastle-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/pipeline-model-definition/2.2258.v4e96d2b_da_f9b_/pipeline-model-definition.hpi to download pipeline-model-definition plugin
+Will use url: https://updates.jenkins.io/download/plugins/pipeline-milestone-step/138.v78ca_76831a_43/pipeline-milestone-step.hpi to download pipeline-milestone-step plugin
+Will use url: https://updates.jenkins.io/download/plugins/snakeyaml-api/2.3-125.v4d77857a_b_402/snakeyaml-api.hpi to download snakeyaml-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/pipeline-stage-step/322.vecffa_99f371c/pipeline-stage-step.hpi to download pipeline-stage-step plugin
+Will use url: https://updates.jenkins.io/download/plugins/json-api/20250517-163.v1c5da_e99c775/json-api.hpi to download json-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/pipeline-stage-tags-metadata/2.2258.v4e96d2b_da_f9b_/pipeline-stage-tags-metadata.hpi to download pipeline-stage-tags-metadata plugin
+Will use url: https://updates.jenkins.io/download/plugins/kubernetes-cli/1.364.vadef8cb8b823/kubernetes-cli.hpi to download kubernetes-cli plugin
 Will use url: https://updates.jenkins.io/download/plugins/kubernetes-credentials/203.v85b_9836a_f44b_/kubernetes-credentials.hpi to download kubernetes-credentials plugin
 Will use url: https://updates.jenkins.io/download/plugins/credentials-binding/702.vfe613e537e88/credentials-binding.hpi to download credentials-binding plugin
+Will use url: https://updates.jenkins.io/download/plugins/variant/70.va_d9f17f859e0/variant.hpi to download variant plugin
+Will use url: https://updates.jenkins.io/download/plugins/okhttp-api/4.11.0-189.v976fa_d3379d6/okhttp-api.hpi to download okhttp-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/kubernetes-client-api/7.3.1-256.v788a_0b_787114/kubernetes-client-api.hpi to download kubernetes-client-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/commons-text-api/1.14.0-194.v804a_dc3a_1b_d8/commons-text-api.hpi to download commons-text-api plugin
 Will use url: https://updates.jenkins.io/download/plugins/workflow-basic-steps/1079.vce64b_a_929c5a_/workflow-basic-steps.hpi to download workflow-basic-steps plugin
+Will use url: https://updates.jenkins.io/download/plugins/scm-api/707.v749f968369d4/scm-api.hpi to download scm-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/jakarta-activation-api/2.1.3-2/jakarta-activation-api.hpi to download jakarta-activation-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/caffeine-api/3.2.2-178.v353b_8428ed56/caffeine-api.hpi to download caffeine-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/git/5.7.0/git.hpi to download git plugin
+Will use url: https://updates.jenkins.io/download/plugins/gson-api/2.13.1-153.vb_3d0c48a_a_b_4a_/gson-api.hpi to download gson-api plugin
 Will use url: https://updates.jenkins.io/download/plugins/ssh-credentials/361.vb_f6760818e8c/ssh-credentials.hpi to download ssh-credentials plugin
-Will use url: https://updates.jenkins.io/download/plugins/pipeline-stage-step/322.vecffa_99f371c/pipeline-stage-step.hpi to download pipeline-stage-step plugin
 Will use url: https://updates.jenkins.io/download/plugins/font-awesome-api/7.0.0-1/font-awesome-api.hpi to download font-awesome-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/script-security/1378.vf25626395f49/script-security.hpi to download script-security plugin
+Will use url: https://updates.jenkins.io/download/plugins/mina-sshd-api-core/2.15.0-161.vb_200831a_c15b_/mina-sshd-api-core.hpi to download mina-sshd-api-core plugin
 Will use url: https://updates.jenkins.io/download/plugins/bootstrap5-api/5.3.7-2/bootstrap5-api.hpi to download bootstrap5-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/joda-time-api/2.14.0-149.v1c3ce991d1b_9/joda-time-api.hpi to download joda-time-api plugin
-Will use url: https://updates.jenkins.io/download/plugins/cloudbees-folder/6.1037.v4cb_8573b_72a_a_/cloudbees-folder.hpi to download cloudbees-folder plugin
-Will use url: https://updates.jenkins.io/download/plugins/authentication-tokens/1.144.v5ff4a_5ec5c33/authentication-tokens.hpi to download authentication-tokens plugin
+Will use url: https://updates.jenkins.io/download/plugins/prism-api/1.30.0-1/prism-api.hpi to download prism-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/pipeline-build-step/571.v08a_fffd4b_0ce/pipeline-build-step.hpi to download pipeline-build-step plugin
+Will use url: https://updates.jenkins.io/download/plugins/workflow-cps/4177.vb_203fe395445/workflow-cps.hpi to download workflow-cps plugin
+Will use url: https://updates.jenkins.io/download/plugins/workflow-job/1540.v295eccc9778f/workflow-job.hpi to download workflow-job plugin
 Will use url: https://updates.jenkins.io/download/plugins/structs/353.v261ea_40a_80fb_/structs.hpi to download structs plugin
+Will use url: https://updates.jenkins.io/download/plugins/branch-api/2.1235.v04e86c7ce54c/branch-api.hpi to download branch-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/authentication-tokens/1.144.v5ff4a_5ec5c33/authentication-tokens.hpi to download authentication-tokens plugin
+Will use url: https://updates.jenkins.io/download/plugins/commons-lang3-api/3.18.0-98.v3a_674c06072d/commons-lang3-api.hpi to download commons-lang3-api plugin
+Will use url: https://updates.jenkins.io/download/plugins/durable-task/595.ve87b_f1318d67/durable-task.hpi to download durable-task plugin
+Will use url: https://updates.jenkins.io/download/plugins/workflow-api/1382.veca_a_efe062fa_/workflow-api.hpi to download workflow-api plugin
 Downloaded pipeline-input-step from https://archives.jenkins.io/plugins/pipeline-input-step/534.v352f0a_e98918/pipeline-input-step.hpi (attempt 1 of 3)
 Downloaded and validated plugin pipeline-input-step
 Checksum valid for: pipeline-input-step
-Will use url: https://updates.jenkins.io/download/plugins/durable-task/595.ve87b_f1318d67/durable-task.hpi to download durable-task plugin
-Downloaded workflow-cps from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/workflow-cps/4177.vb_203fe395445/workflow-cps.hpi (attempt 1 of 3)
-Downloaded and validated plugin workflow-cps
-No checksum found for workflow-cps (probably custom built plugin)
-Will use url: https://updates.jenkins.io/download/plugins/workflow-multibranch/810.v6b_6e77da_7058/workflow-multibranch.hpi to download workflow-multibranch plugin
-Downloaded job-dsl from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/job-dsl/1.93/job-dsl.hpi (attempt 1 of 3)
-Downloaded and validated plugin job-dsl
-Checksum valid for: job-dsl
-Will use url: https://updates.jenkins.io/download/plugins/workflow-job/1540.v295eccc9778f/workflow-job.hpi to download workflow-job plugin
-Downloaded workflow-aggregator from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/workflow-aggregator/608.v67378e9d3db_1/workflow-aggregator.hpi (attempt 1 of 3)
-Downloaded and validated plugin workflow-aggregator
-Checksum valid for: workflow-aggregator
-Downloaded workflow-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/workflow-api/1382.veca_a_efe062fa_/workflow-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin workflow-api
-Checksum valid for: workflow-api
-Downloaded commons-lang3-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/commons-lang3-api/3.18.0-98.v3a_674c06072d/commons-lang3-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin commons-lang3-api
-Checksum valid for: commons-lang3-api
-Downloaded scm-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/scm-api/707.v749f968369d4/scm-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin scm-api
-Checksum valid for: scm-api
-Downloaded okhttp-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/okhttp-api/4.11.0-189.v976fa_d3379d6/okhttp-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin okhttp-api
-Checksum valid for: okhttp-api
-Downloaded ionicons-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/ionicons-api/94.vcc3065403257/ionicons-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin ionicons-api
-Checksum valid for: ionicons-api
-Aug 07, 2025 9:50:38 PM org.apache.http.impl.execchain.RetryExec execute
-INFO: I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {s}->https://ftp-nyc.osuosl.org:443: The target server failed to respond
-Aug 07, 2025 9:50:38 PM org.apache.http.impl.execchain.RetryExec execute
-INFO: Retrying request to {s}->https://ftp-nyc.osuosl.org:443
-Downloaded kubernetes from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/kubernetes/4358.vcfd9c5a_0a_f51/kubernetes.hpi (attempt 1 of 3)
-Downloaded and validated plugin kubernetes
-Checksum valid for: kubernetes
-Downloaded javax-activation-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/javax-activation-api/1.2.0-8/javax-activation-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin javax-activation-api
-Checksum valid for: javax-activation-api
-Downloaded joda-time-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/joda-time-api/2.14.0-149.v1c3ce991d1b_9/joda-time-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin joda-time-api
-Checksum valid for: joda-time-api
-Downloaded workflow-support from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/workflow-support/976.vb_d9493c2eb_09/workflow-support.hpi (attempt 1 of 3)
-Downloaded and validated plugin workflow-support
-Checksum valid for: workflow-support
-Downloaded ssh-credentials from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/ssh-credentials/361.vb_f6760818e8c/ssh-credentials.hpi (attempt 1 of 3)
-Downloaded and validated plugin ssh-credentials
-Checksum valid for: ssh-credentials
-Downloaded mina-sshd-api-common from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/mina-sshd-api-common/2.15.0-161.vb_200831a_c15b_/mina-sshd-api-common.hpi (attempt 1 of 3)
-Downloaded and validated plugin mina-sshd-api-common
-Checksum valid for: mina-sshd-api-common
-Downloaded commons-text-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/commons-text-api/1.14.0-194.v804a_dc3a_1b_d8/commons-text-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin commons-text-api
-Checksum valid for: commons-text-api
-Aug 07, 2025 9:51:43 PM org.apache.http.impl.execchain.RetryExec execute
-INFO: I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {s}->https://ftp-nyc.osuosl.org:443: The target server failed to respond
-Aug 07, 2025 9:51:43 PM org.apache.http.impl.execchain.RetryExec execute
-INFO: Retrying request to {s}->https://ftp-nyc.osuosl.org:443
-Downloaded workflow-durable-task-step from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/workflow-durable-task-step/1446.v3efd13441220/workflow-durable-task-step.hpi (attempt 1 of 3)
-Downloaded and validated plugin workflow-durable-task-step
-Checksum valid for: workflow-durable-task-step
-Downloaded plain-credentials from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/plain-credentials/199.v9f8e1f741799/plain-credentials.hpi (attempt 1 of 3)
-Downloaded and validated plugin plain-credentials
-Checksum valid for: plain-credentials
-Downloaded git from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/git/5.7.0/git.hpi (attempt 1 of 3)
-Downloaded and validated plugin git
-Checksum valid for: git
-Downloaded antisamy-markup-formatter from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/antisamy-markup-formatter/173.v680e3a_b_69ff3/antisamy-markup-formatter.hpi (attempt 1 of 3)
-Downloaded and validated plugin antisamy-markup-formatter
-Checksum valid for: antisamy-markup-formatter
-Downloaded configuration-as-code from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/configuration-as-code/1985.vdda_32d0c4ea_b_/configuration-as-code.hpi (attempt 1 of 3)
-Downloaded and validated plugin configuration-as-code
-Checksum valid for: configuration-as-code
-Downloaded asm-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/asm-api/9.8-163.vb_2a_96d3f9c3c/asm-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin asm-api
-Checksum valid for: asm-api
-Downloaded kubernetes-cli from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/kubernetes-cli/1.364.vadef8cb8b823/kubernetes-cli.hpi (attempt 1 of 3)
-Downloaded and validated plugin kubernetes-cli
-Checksum valid for: kubernetes-cli
-Downloaded workflow-multibranch from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/workflow-multibranch/810.v6b_6e77da_7058/workflow-multibranch.hpi (attempt 1 of 3)
-Downloaded and validated plugin workflow-multibranch
-Checksum valid for: workflow-multibranch
-Downloaded workflow-basic-steps from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/workflow-basic-steps/1079.vce64b_a_929c5a_/workflow-basic-steps.hpi (attempt 1 of 3)
-Downloaded and validated plugin workflow-basic-steps
-Checksum valid for: workflow-basic-steps
-Downloaded snakeyaml-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/snakeyaml-api/2.3-125.v4d77857a_b_402/snakeyaml-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin snakeyaml-api
-Checksum valid for: snakeyaml-api
-Downloaded jakarta-mail-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/jakarta-mail-api/2.1.3-2/jakarta-mail-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin jakarta-mail-api
-Checksum valid for: jakarta-mail-api
-Downloaded bootstrap5-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/bootstrap5-api/5.3.7-2/bootstrap5-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin bootstrap5-api
-Checksum valid for: bootstrap5-api
-Downloaded pipeline-stage-tags-metadata from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/pipeline-stage-tags-metadata/2.2258.v4e96d2b_da_f9b_/pipeline-stage-tags-metadata.hpi (attempt 1 of 3)
-Downloaded and validated plugin pipeline-stage-tags-metadata
-Checksum valid for: pipeline-stage-tags-metadata
-Downloaded kubernetes-credentials from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/kubernetes-credentials/203.v85b_9836a_f44b_/kubernetes-credentials.hpi (attempt 1 of 3)
-Downloaded and validated plugin kubernetes-credentials
-Checksum valid for: kubernetes-credentials
-Downloaded pipeline-model-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/pipeline-model-api/2.2258.v4e96d2b_da_f9b_/pipeline-model-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin pipeline-model-api
-Checksum valid for: pipeline-model-api
-Downloaded apache-httpcomponents-client-4-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/apache-httpcomponents-client-4-api/4.5.14-269.vfa_2321039a_83/apache-httpcomponents-client-4-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin apache-httpcomponents-client-4-api
-Checksum valid for: apache-httpcomponents-client-4-api
-Downloaded display-url-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/display-url-api/2.217.va_6b_de84cc74b_/display-url-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin display-url-api
-Checksum valid for: display-url-api
-Downloaded jaxb from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/jaxb/2.3.9-133.vb_ec76a_73f706/jaxb.hpi (attempt 1 of 3)
-Downloaded and validated plugin jaxb
-Checksum valid for: jaxb
-Downloaded workflow-job from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/workflow-job/1540.v295eccc9778f/workflow-job.hpi (attempt 1 of 3)
-Downloaded and validated plugin workflow-job
-Checksum valid for: workflow-job
-Downloaded authentication-tokens from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/authentication-tokens/1.144.v5ff4a_5ec5c33/authentication-tokens.hpi (attempt 1 of 3)
-Downloaded and validated plugin authentication-tokens
-Checksum valid for: authentication-tokens
-Downloaded pipeline-model-extensions from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/pipeline-model-extensions/2.2258.v4e96d2b_da_f9b_/pipeline-model-extensions.hpi (attempt 1 of 3)
-Downloaded and validated plugin pipeline-model-extensions
-No checksum found for pipeline-model-extensions (probably custom built plugin)
-Downloaded instance-identity from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/instance-identity/203.v15e81a_1b_7a_38/instance-identity.hpi (attempt 1 of 3)
-Downloaded and validated plugin instance-identity
-Checksum valid for: instance-identity
-Downloaded json-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/json-api/20250517-163.v1c5da_e99c775/json-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin json-api
-Checksum valid for: json-api
-Downloaded pipeline-build-step from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/pipeline-build-step/571.v08a_fffd4b_0ce/pipeline-build-step.hpi (attempt 1 of 3)
-Downloaded and validated plugin pipeline-build-step
-Checksum valid for: pipeline-build-step
-Downloaded gson-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/gson-api/2.13.1-153.vb_3d0c48a_a_b_4a_/gson-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin gson-api
-Checksum valid for: gson-api
-Downloaded workflow-step-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/workflow-step-api/706.v518c5dcb_24c0/workflow-step-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin workflow-step-api
-Checksum valid for: workflow-step-api
-Downloaded cloudbees-folder from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/cloudbees-folder/6.1037.v4cb_8573b_72a_a_/cloudbees-folder.hpi (attempt 1 of 3)
-Downloaded and validated plugin cloudbees-folder
-Checksum valid for: cloudbees-folder
-Downloaded branch-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/branch-api/2.1235.v04e86c7ce54c/branch-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin branch-api
-No checksum found for branch-api (probably custom built plugin)
-Downloaded font-awesome-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/font-awesome-api/7.0.0-1/font-awesome-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin font-awesome-api
-Checksum valid for: font-awesome-api
-Downloaded pipeline-stage-step from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/pipeline-stage-step/322.vecffa_99f371c/pipeline-stage-step.hpi (attempt 1 of 3)
-Downloaded and validated plugin pipeline-stage-step
-Checksum valid for: pipeline-stage-step
-Downloaded caffeine-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/caffeine-api/3.2.2-178.v353b_8428ed56/caffeine-api.hpi (attempt 1 of 3)
-Downloaded and validated plugin caffeine-api
-Checksum valid for: caffeine-api
+Will use url: https://updates.jenkins.io/download/plugins/display-url-api/2.217.va_6b_de84cc74b_/display-url-api.hpi to download display-url-api plugin
+Downloaded pipeline-groovy-lib from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/pipeline-groovy-lib/752.vdddedf804e72/pipeline-groovy-lib.hpi (attempt 1 of 3)
+Downloaded and validated plugin pipeline-groovy-lib
+Checksum valid for: pipeline-groovy-lib
+Will use url: https://updates.jenkins.io/download/plugins/apache-httpcomponents-client-4-api/4.5.14-269.vfa_2321039a_83/apache-httpcomponents-client-4-api.hpi to download apache-httpcomponents-client-4-api plugin
 Downloaded pipeline-model-definition from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/pipeline-model-definition/2.2258.v4e96d2b_da_f9b_/pipeline-model-definition.hpi (attempt 1 of 3)
 Downloaded and validated plugin pipeline-model-definition
 Checksum valid for: pipeline-model-definition
-Downloaded workflow-scm-step from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/workflow-scm-step/437.v05a_f66b_e5ef8/workflow-scm-step.hpi (attempt 1 of 3)
-Downloaded and validated plugin workflow-scm-step
-Checksum valid for: workflow-scm-step
+Will use url: https://updates.jenkins.io/download/plugins/cloudbees-folder/6.1037.v4cb_8573b_72a_a_/cloudbees-folder.hpi to download cloudbees-folder plugin
+Downloaded job-dsl from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/job-dsl/1.93/job-dsl.hpi (attempt 1 of 3)
+Downloaded and validated plugin job-dsl
+Checksum valid for: job-dsl
+Downloaded prism-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/prism-api/1.30.0-1/prism-api.hpi (attempt 1 of 3)
+Downloaded and validated plugin prism-api
+Checksum valid for: prism-api
+Downloaded workflow-multibranch from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/workflow-multibranch/810.v6b_6e77da_7058/workflow-multibranch.hpi (attempt 1 of 3)
+Downloaded and validated plugin workflow-multibranch
+Checksum valid for: workflow-multibranch
+Downloaded display-url-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/display-url-api/2.217.va_6b_de84cc74b_/display-url-api.hpi (attempt 1 of 3)
+Downloaded and validated plugin display-url-api
+Checksum valid for: display-url-api
 Downloaded script-security from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/script-security/1378.vf25626395f49/script-security.hpi (attempt 1 of 3)
 Downloaded and validated plugin script-security
 Checksum valid for: script-security
+Downloaded plugin-util-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/plugin-util-api/6.1.0/plugin-util-api.hpi (attempt 1 of 3)
+Downloaded and validated plugin plugin-util-api
+Checksum valid for: plugin-util-api
+Downloaded cloudbees-folder from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/cloudbees-folder/6.1037.v4cb_8573b_72a_a_/cloudbees-folder.hpi (attempt 1 of 3)
+Downloaded and validated plugin cloudbees-folder
+Checksum valid for: cloudbees-folder
+Downloaded jakarta-mail-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/jakarta-mail-api/2.1.3-2/jakarta-mail-api.hpi (attempt 1 of 3)
+Downloaded and validated plugin jakarta-mail-api
+Checksum valid for: jakarta-mail-api
+Downloaded ssh-credentials from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/ssh-credentials/361.vb_f6760818e8c/ssh-credentials.hpi (attempt 1 of 3)
+Downloaded and validated plugin ssh-credentials
+Checksum valid for: ssh-credentials
+Downloaded authentication-tokens from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/authentication-tokens/1.144.v5ff4a_5ec5c33/authentication-tokens.hpi (attempt 1 of 3)
+Downloaded and validated plugin authentication-tokens
+Checksum valid for: authentication-tokens
+Downloaded pipeline-stage-tags-metadata from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/pipeline-stage-tags-metadata/2.2258.v4e96d2b_da_f9b_/pipeline-stage-tags-metadata.hpi (attempt 1 of 3)
+Downloaded and validated plugin pipeline-stage-tags-metadata
+Checksum valid for: pipeline-stage-tags-metadata
+Downloaded mina-sshd-api-common from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/mina-sshd-api-common/2.15.0-161.vb_200831a_c15b_/mina-sshd-api-common.hpi (attempt 1 of 3)
+Downloaded and validated plugin mina-sshd-api-common
+Checksum valid for: mina-sshd-api-common
+Downloaded workflow-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/workflow-api/1382.veca_a_efe062fa_/workflow-api.hpi (attempt 1 of 3)
+Downloaded and validated plugin workflow-api
+Checksum valid for: workflow-api
+Downloaded workflow-durable-task-step from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/workflow-durable-task-step/1446.v3efd13441220/workflow-durable-task-step.hpi (attempt 1 of 3)
+Downloaded and validated plugin workflow-durable-task-step
+Checksum valid for: workflow-durable-task-step
+Downloaded apache-httpcomponents-client-4-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/apache-httpcomponents-client-4-api/4.5.14-269.vfa_2321039a_83/apache-httpcomponents-client-4-api.hpi (attempt 1 of 3)
+Downloaded and validated plugin apache-httpcomponents-client-4-api
+Checksum valid for: apache-httpcomponents-client-4-api
+Downloaded instance-identity from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/instance-identity/203.v15e81a_1b_7a_38/instance-identity.hpi (attempt 1 of 3)
+Downloaded and validated plugin instance-identity
+Checksum valid for: instance-identity
+Downloaded caffeine-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/caffeine-api/3.2.2-178.v353b_8428ed56/caffeine-api.hpi (attempt 1 of 3)
+Downloaded and validated plugin caffeine-api
+Checksum valid for: caffeine-api
+Downloaded javax-activation-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/javax-activation-api/1.2.0-8/javax-activation-api.hpi (attempt 1 of 3)
+Downloaded and validated plugin javax-activation-api
+Checksum valid for: javax-activation-api
+Downloaded mailer from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/mailer/515.vd788654779b_1/mailer.hpi (attempt 1 of 3)
+Downloaded and validated plugin mailer
+Checksum valid for: mailer
+Downloaded workflow-support from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/workflow-support/976.vb_d9493c2eb_09/workflow-support.hpi (attempt 1 of 3)
+Downloaded and validated plugin workflow-support
+Checksum valid for: workflow-support
+Downloaded antisamy-markup-formatter from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/antisamy-markup-formatter/173.v680e3a_b_69ff3/antisamy-markup-formatter.hpi (attempt 1 of 3)
+Downloaded and validated plugin antisamy-markup-formatter
+Checksum valid for: antisamy-markup-formatter
+Downloaded jaxb from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/jaxb/2.3.9-133.vb_ec76a_73f706/jaxb.hpi (attempt 1 of 3)
+Downloaded and validated plugin jaxb
+Checksum valid for: jaxb
+Downloaded gson-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/gson-api/2.13.1-153.vb_3d0c48a_a_b_4a_/gson-api.hpi (attempt 1 of 3)
+Downloaded and validated plugin gson-api
+Checksum valid for: gson-api
+Downloaded kubernetes from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/kubernetes/4358.vcfd9c5a_0a_f51/kubernetes.hpi (attempt 1 of 3)
+Downloaded and validated plugin kubernetes
+Checksum valid for: kubernetes
+Downloaded ionicons-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/ionicons-api/94.vcc3065403257/ionicons-api.hpi (attempt 1 of 3)
+Downloaded and validated plugin ionicons-api
+Checksum valid for: ionicons-api
+Downloaded snakeyaml-api from https://ftp-nyc.osuosl.org/pub/jenkins/plugins/snakeyaml-api/2.3-125.v4d77857a_b_402/snakeyaml-api.hpi (attempt 1 of 3)
+Downloaded and validated plugin snakeyaml-api
+Checksum valid for: snakeyaml-api
