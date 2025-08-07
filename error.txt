@@ -1,330 +1,165 @@
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:611)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.Server.handle(Server.java:182)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.internal.HttpChannelState$HandlerInvoker.run(HttpChannelState.java:678)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.internal.HttpConnection.onFillable(HttpConnection.java:416)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:322)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:99)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:480)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:443)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:293)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:201)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:311)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:981)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1211)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1166)
-        at java.base/java.lang.Thread.run(Unknown Source)
-2025-08-07 18:56:39.821+0000 [id=17]    WARNING h.i.i.InstallUncaughtExceptionHandler#handleException: Caught unhandled exception with ID 7c45f927-8d7a-4356-a31e-7c41838a3542
-java.lang.AssertionError: class hudson.security.csrf.DefaultCrumbIssuer is missing its descriptor
-        at jenkins.model.Jenkins.getDescriptorOrDie(Jenkins.java:1561)
-        at hudson.security.csrf.CrumbIssuer.getDescriptor(CrumbIssuer.java:228)
-        at hudson.security.csrf.CrumbFilter.doFilter(CrumbFilter.java:132)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at hudson.security.HudsonFilter.doFilter(HudsonFilter.java:171)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at org.kohsuke.stapler.UncaughtExceptionFilter.doFilter(UncaughtExceptionFilter.java:26)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at hudson.util.CharacterEncodingFilter.doFilter(CharacterEncodingFilter.java:86)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at org.kohsuke.stapler.DiagnosticThreadNameFilter.doFilter(DiagnosticThreadNameFilter.java:31)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at jenkins.security.SuspiciousRequestFilter.doFilter(SuspiciousRequestFilter.java:38)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler.doHandle(ServletHandler.java:526)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.handle(ScopedHandler.java:127)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.security.SecurityHandler.handle(SecurityHandler.java:574)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.HandlerWrapper.handle(HandlerWrapper.java:124)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextHandle(ScopedHandler.java:197)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.SessionHandler.doHandle(SessionHandler.java:612)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextHandle(ScopedHandler.java:195)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler.doHandle(ContextHandler.java:1045)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextScope(ScopedHandler.java:164)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler.doScope(ServletHandler.java:483)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextScope(ScopedHandler.java:162)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.SessionHandler.doScope(SessionHandler.java:589)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextScope(ScopedHandler.java:162)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler.doScope(ContextHandler.java:966)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.handle(ScopedHandler.java:125)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler.handle(ContextHandler.java:1719)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1565)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.HttpChannel.dispatch(HttpChannel.java:724)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.HttpChannel.handle(HttpChannel.java:512)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler$CoreContextHandler$CoreToNestedHandler.handle(ContextHandler.java:3029)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.handler.ContextHandler.handle(ContextHandler.java:1071)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:611)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.Server.handle(Server.java:182)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.internal.HttpChannelState$HandlerInvoker.run(HttpChannelState.java:678)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.internal.HttpConnection.onFillable(HttpConnection.java:416)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:322)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:99)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:480)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:443)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:293)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:201)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:311)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:981)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1211)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1166)
-        at java.base/java.lang.Thread.run(Unknown Source)
-2025-08-07 18:56:39.911+0000 [id=17]    WARNING o.e.jetty.ee9.nested.HttpChannel#handleException: /reload-configuration-as-code/
-java.lang.AssertionError: class hudson.security.csrf.DefaultCrumbIssuer is missing its descriptor
-        at jenkins.model.Jenkins.getDescriptorOrDie(Jenkins.java:1561)
-        at hudson.security.csrf.CrumbIssuer.getDescriptor(CrumbIssuer.java:228)
-        at hudson.Functions.getCrumbRequestField(Functions.java:2210)
-        at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
-        at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-        at org.apache.commons.jexl.util.introspection.UberspectImpl$VelMethodImpl.invoke(UberspectImpl.java:258)
-        at org.apache.commons.jexl.parser.ASTMethod.execute(ASTMethod.java:104)
-        at org.apache.commons.jexl.parser.ASTReference.execute(ASTReference.java:83)
-        at org.apache.commons.jexl.parser.ASTReference.value(ASTReference.java:57)
-        at org.apache.commons.jexl.parser.ASTReferenceExpression.value(ASTReferenceExpression.java:51)
-        at org.apache.commons.jexl.ExpressionImpl.evaluate(ExpressionImpl.java:80)
-        at hudson.ExpressionFactory2$JexlExpression.evaluate(ExpressionFactory2.java:76)
-        at org.apache.commons.jelly.expression.ExpressionSupport.evaluateRecurse(ExpressionSupport.java:61)
-        at org.apache.commons.jelly.expression.ExpressionSupport.evaluateAsString(ExpressionSupport.java:46)
-        at org.kohsuke.stapler.jelly.ReallyStaticTagLibrary$1.buildAttributes(ReallyStaticTagLibrary.java:114)
-        at org.kohsuke.stapler.jelly.ReallyStaticTagLibrary$1.run(ReallyStaticTagLibrary.java:98)
-        at org.apache.commons.jelly.impl.ScriptBlock.run(ScriptBlock.java:95)
-        at org.kohsuke.stapler.jelly.ReallyStaticTagLibrary$1.run(ReallyStaticTagLibrary.java:102)
-        at org.apache.commons.jelly.impl.ScriptBlock.run(ScriptBlock.java:95)
-        at org.kohsuke.stapler.jelly.CallTagLibScript$1.run(CallTagLibScript.java:100)
-        at org.apache.commons.jelly.tags.define.InvokeBodyTag.doTag(InvokeBodyTag.java:91)
-        at org.apache.commons.jelly.impl.TagScript.run(TagScript.java:271)
-Caused: org.apache.commons.jelly.JellyTagException: jar:file:/var/jenkins_cache/war/WEB-INF/lib/jenkins-core-2.516.1.jar!/lib/layout/view.jelly:42:20: <d:invokeBody> class hudson.security.csrf.DefaultCrumbIssuer is missing its descriptor
-        at org.apache.commons.jelly.impl.TagScript.handleException(TagScript.java:744)
-        at org.apache.commons.jelly.impl.TagScript.run(TagScript.java:291)
-        at org.apache.commons.jelly.impl.ScriptBlock.run(ScriptBlock.java:95)
-        at org.apache.commons.jelly.tags.core.CoreTagLibrary$2.run(CoreTagLibrary.java:105)
-        at org.kohsuke.stapler.jelly.CallTagLibScript.run(CallTagLibScript.java:121)
-        at org.apache.commons.jelly.impl.ScriptBlock.run(ScriptBlock.java:95)
-        at org.apache.commons.jelly.tags.core.CoreTagLibrary$2.run(CoreTagLibrary.java:105)
-        at org.kohsuke.stapler.jelly.CallTagLibScript.run(CallTagLibScript.java:121)
-        at org.apache.commons.jelly.impl.ScriptBlock.run(ScriptBlock.java:95)
-        at org.apache.commons.jelly.tags.core.CoreTagLibrary$2.run(CoreTagLibrary.java:105)
-        at org.kohsuke.stapler.jelly.JellyViewScript.run(JellyViewScript.java:98)
-        at org.kohsuke.stapler.jelly.DefaultScriptInvoker.invokeScript(DefaultScriptInvoker.java:67)
-        at org.kohsuke.stapler.jelly.DefaultScriptInvoker.invokeScript(DefaultScriptInvoker.java:55)
-        at org.kohsuke.stapler.jelly.ScriptInvoker.execute(ScriptInvoker.java:62)
-        at org.kohsuke.stapler.jelly.ScriptInvoker.execute(ScriptInvoker.java:42)
-        at org.kohsuke.stapler.Facet$1.dispatch(Facet.java:230)
-Caused: jakarta.servlet.ServletException
-        at org.kohsuke.stapler.Facet$1.dispatch(Facet.java:239)
-        at org.kohsuke.stapler.Stapler.tryInvoke(Stapler.java:800)
-        at org.kohsuke.stapler.Stapler.invoke(Stapler.java:938)
-        at org.kohsuke.stapler.Stapler.invoke(Stapler.java:721)
-        at hudson.init.impl.InstallUncaughtExceptionHandler.handleException(InstallUncaughtExceptionHandler.java:59)
-        at hudson.init.impl.InstallUncaughtExceptionHandler.lambda$init$0(InstallUncaughtExceptionHandler.java:33)
-        at org.kohsuke.stapler.UncaughtExceptionFilter.reportException(UncaughtExceptionFilter.java:37)
-        at org.kohsuke.stapler.UncaughtExceptionFilter.doFilter(UncaughtExceptionFilter.java:31)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at hudson.util.CharacterEncodingFilter.doFilter(CharacterEncodingFilter.java:86)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at org.kohsuke.stapler.DiagnosticThreadNameFilter.doFilter(DiagnosticThreadNameFilter.java:31)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at jenkins.security.SuspiciousRequestFilter.doFilter(SuspiciousRequestFilter.java:38)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler.doHandle(ServletHandler.java:526)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.handle(ScopedHandler.java:127)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.security.SecurityHandler.handle(SecurityHandler.java:574)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.HandlerWrapper.handle(HandlerWrapper.java:124)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextHandle(ScopedHandler.java:197)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.SessionHandler.doHandle(SessionHandler.java:612)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextHandle(ScopedHandler.java:195)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler.doHandle(ContextHandler.java:1045)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextScope(ScopedHandler.java:164)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler.doScope(ServletHandler.java:483)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextScope(ScopedHandler.java:162)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.SessionHandler.doScope(SessionHandler.java:589)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextScope(ScopedHandler.java:162)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler.doScope(ContextHandler.java:966)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.handle(ScopedHandler.java:125)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler.handle(ContextHandler.java:1719)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1565)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.HttpChannel.dispatch(HttpChannel.java:724)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.HttpChannel.handle(HttpChannel.java:512)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler$CoreContextHandler$CoreToNestedHandler.handle(ContextHandler.java:3029)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.handler.ContextHandler.handle(ContextHandler.java:1071)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:611)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.Server.handle(Server.java:182)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.internal.HttpChannelState$HandlerInvoker.run(HttpChannelState.java:678)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.internal.HttpConnection.onFillable(HttpConnection.java:416)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:322)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:99)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:480)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:443)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:293)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:201)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:311)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:981)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1211)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1166)
-        at java.base/java.lang.Thread.run(Unknown Source)
-2025-08-07 18:56:44.418+0000 [id=16]    WARNING h.i.i.InstallUncaughtExceptionHandler#handleException: Caught unhandled exception with ID 13f9ead1-1842-4fea-a95f-69b067422a0f
-java.lang.AssertionError: class hudson.security.csrf.DefaultCrumbIssuer is missing its descriptor
-        at jenkins.model.Jenkins.getDescriptorOrDie(Jenkins.java:1561)
-        at hudson.security.csrf.CrumbIssuer.getDescriptor(CrumbIssuer.java:228)
-        at hudson.security.csrf.CrumbFilter.doFilter(CrumbFilter.java:132)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at hudson.security.HudsonFilter.doFilter(HudsonFilter.java:171)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at org.kohsuke.stapler.UncaughtExceptionFilter.doFilter(UncaughtExceptionFilter.java:26)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at hudson.util.CharacterEncodingFilter.doFilter(CharacterEncodingFilter.java:86)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at org.kohsuke.stapler.DiagnosticThreadNameFilter.doFilter(DiagnosticThreadNameFilter.java:31)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at jenkins.security.SuspiciousRequestFilter.doFilter(SuspiciousRequestFilter.java:38)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler.doHandle(ServletHandler.java:526)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.handle(ScopedHandler.java:127)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.security.SecurityHandler.handle(SecurityHandler.java:574)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.HandlerWrapper.handle(HandlerWrapper.java:124)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextHandle(ScopedHandler.java:197)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.SessionHandler.doHandle(SessionHandler.java:612)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextHandle(ScopedHandler.java:195)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler.doHandle(ContextHandler.java:1045)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextScope(ScopedHandler.java:164)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler.doScope(ServletHandler.java:483)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextScope(ScopedHandler.java:162)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.SessionHandler.doScope(SessionHandler.java:589)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextScope(ScopedHandler.java:162)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler.doScope(ContextHandler.java:966)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.handle(ScopedHandler.java:125)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler.handle(ContextHandler.java:1719)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1565)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.HttpChannel.dispatch(HttpChannel.java:724)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.HttpChannel.handle(HttpChannel.java:512)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler$CoreContextHandler$CoreToNestedHandler.handle(ContextHandler.java:3029)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.handler.ContextHandler.handle(ContextHandler.java:1071)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:611)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.Server.handle(Server.java:182)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.internal.HttpChannelState$HandlerInvoker.run(HttpChannelState.java:678)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.internal.HttpConnection.onFillable(HttpConnection.java:416)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:322)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:99)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:480)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:443)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:293)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:201)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:311)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:981)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1211)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1166)
-        at java.base/java.lang.Thread.run(Unknown Source)
-2025-08-07 18:56:44.422+0000 [id=16]    WARNING o.e.jetty.ee9.nested.HttpChannel#handleException: /reload-configuration-as-code/
-java.lang.AssertionError: class hudson.security.csrf.DefaultCrumbIssuer is missing its descriptor
-        at jenkins.model.Jenkins.getDescriptorOrDie(Jenkins.java:1561)
-        at hudson.security.csrf.CrumbIssuer.getDescriptor(CrumbIssuer.java:228)
-        at hudson.Functions.getCrumbRequestField(Functions.java:2210)
-        at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
-        at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-        at org.apache.commons.jexl.util.introspection.UberspectImpl$VelMethodImpl.invoke(UberspectImpl.java:258)
-        at org.apache.commons.jexl.parser.ASTMethod.execute(ASTMethod.java:104)
-        at org.apache.commons.jexl.parser.ASTReference.execute(ASTReference.java:83)
-        at org.apache.commons.jexl.parser.ASTReference.value(ASTReference.java:57)
-        at org.apache.commons.jexl.parser.ASTReferenceExpression.value(ASTReferenceExpression.java:51)
-        at org.apache.commons.jexl.ExpressionImpl.evaluate(ExpressionImpl.java:80)
-        at hudson.ExpressionFactory2$JexlExpression.evaluate(ExpressionFactory2.java:76)
-        at org.apache.commons.jelly.expression.ExpressionSupport.evaluateRecurse(ExpressionSupport.java:61)
-        at org.apache.commons.jelly.expression.ExpressionSupport.evaluateAsString(ExpressionSupport.java:46)
-        at org.kohsuke.stapler.jelly.ReallyStaticTagLibrary$1.buildAttributes(ReallyStaticTagLibrary.java:114)
-        at org.kohsuke.stapler.jelly.ReallyStaticTagLibrary$1.run(ReallyStaticTagLibrary.java:98)
-        at org.apache.commons.jelly.impl.ScriptBlock.run(ScriptBlock.java:95)
-        at org.kohsuke.stapler.jelly.ReallyStaticTagLibrary$1.run(ReallyStaticTagLibrary.java:102)
-        at org.apache.commons.jelly.impl.ScriptBlock.run(ScriptBlock.java:95)
-        at org.kohsuke.stapler.jelly.CallTagLibScript$1.run(CallTagLibScript.java:100)
-        at org.apache.commons.jelly.tags.define.InvokeBodyTag.doTag(InvokeBodyTag.java:91)
-        at org.apache.commons.jelly.impl.TagScript.run(TagScript.java:271)
-Caused: org.apache.commons.jelly.JellyTagException: jar:file:/var/jenkins_cache/war/WEB-INF/lib/jenkins-core-2.516.1.jar!/lib/layout/view.jelly:42:20: <d:invokeBody> class hudson.security.csrf.DefaultCrumbIssuer is missing its descriptor
-        at org.apache.commons.jelly.impl.TagScript.handleException(TagScript.java:744)
-        at org.apache.commons.jelly.impl.TagScript.run(TagScript.java:291)
-        at org.apache.commons.jelly.impl.ScriptBlock.run(ScriptBlock.java:95)
-        at org.apache.commons.jelly.tags.core.CoreTagLibrary$2.run(CoreTagLibrary.java:105)
-        at org.kohsuke.stapler.jelly.CallTagLibScript.run(CallTagLibScript.java:121)
-        at org.apache.commons.jelly.impl.ScriptBlock.run(ScriptBlock.java:95)
-        at org.apache.commons.jelly.tags.core.CoreTagLibrary$2.run(CoreTagLibrary.java:105)
-        at org.kohsuke.stapler.jelly.CallTagLibScript.run(CallTagLibScript.java:121)
-        at org.apache.commons.jelly.impl.ScriptBlock.run(ScriptBlock.java:95)
-        at org.apache.commons.jelly.tags.core.CoreTagLibrary$2.run(CoreTagLibrary.java:105)
-        at org.kohsuke.stapler.jelly.JellyViewScript.run(JellyViewScript.java:98)
-        at org.kohsuke.stapler.jelly.DefaultScriptInvoker.invokeScript(DefaultScriptInvoker.java:67)
-        at org.kohsuke.stapler.jelly.DefaultScriptInvoker.invokeScript(DefaultScriptInvoker.java:55)
-        at org.kohsuke.stapler.jelly.ScriptInvoker.execute(ScriptInvoker.java:62)
-        at org.kohsuke.stapler.jelly.ScriptInvoker.execute(ScriptInvoker.java:42)
-        at org.kohsuke.stapler.Facet$1.dispatch(Facet.java:230)
-Caused: jakarta.servlet.ServletException
-        at org.kohsuke.stapler.Facet$1.dispatch(Facet.java:239)
-        at org.kohsuke.stapler.Stapler.tryInvoke(Stapler.java:800)
-        at org.kohsuke.stapler.Stapler.invoke(Stapler.java:938)
-        at org.kohsuke.stapler.Stapler.invoke(Stapler.java:721)
-        at hudson.init.impl.InstallUncaughtExceptionHandler.handleException(InstallUncaughtExceptionHandler.java:59)
-        at hudson.init.impl.InstallUncaughtExceptionHandler.lambda$init$0(InstallUncaughtExceptionHandler.java:33)
-        at org.kohsuke.stapler.UncaughtExceptionFilter.reportException(UncaughtExceptionFilter.java:37)
-        at org.kohsuke.stapler.UncaughtExceptionFilter.doFilter(UncaughtExceptionFilter.java:31)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at hudson.util.CharacterEncodingFilter.doFilter(CharacterEncodingFilter.java:86)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at org.kohsuke.stapler.DiagnosticThreadNameFilter.doFilter(DiagnosticThreadNameFilter.java:31)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at jenkins.security.SuspiciousRequestFilter.doFilter(SuspiciousRequestFilter.java:38)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.FilterHolder.doFilter(FilterHolder.java:202)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1638)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler.doHandle(ServletHandler.java:526)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.handle(ScopedHandler.java:127)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.security.SecurityHandler.handle(SecurityHandler.java:574)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.HandlerWrapper.handle(HandlerWrapper.java:124)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextHandle(ScopedHandler.java:197)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.SessionHandler.doHandle(SessionHandler.java:612)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextHandle(ScopedHandler.java:195)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler.doHandle(ContextHandler.java:1045)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextScope(ScopedHandler.java:164)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.servlet.ServletHandler.doScope(ServletHandler.java:483)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextScope(ScopedHandler.java:162)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.SessionHandler.doScope(SessionHandler.java:589)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.nextScope(ScopedHandler.java:162)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler.doScope(ContextHandler.java:966)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ScopedHandler.handle(ScopedHandler.java:125)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler.handle(ContextHandler.java:1719)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1565)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.HttpChannel.dispatch(HttpChannel.java:724)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.HttpChannel.handle(HttpChannel.java:512)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.ee9.nested.ContextHandler$CoreContextHandler$CoreToNestedHandler.handle(ContextHandler.java:3029)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.handler.ContextHandler.handle(ContextHandler.java:1071)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:611)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.Server.handle(Server.java:182)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.internal.HttpChannelState$HandlerInvoker.run(HttpChannelState.java:678)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.server.internal.HttpConnection.onFillable(HttpConnection.java:416)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:322)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:99)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:480)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:443)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:293)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:201)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:311)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:981)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1211)
-        at Jenkins Main ClassLoader//org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1166)
-        at java.base/java.lang.Thread.run(Unknown Source)
+Name:             jenkins-0
+Namespace:        infrastructure
+Priority:         0
+Service Account:  jenkins
+Node:             minikube/192.168.49.2
+Start Time:       Thu, 07 Aug 2025 18:45:57 -0300
+Labels:           app.kubernetes.io/component=jenkins-controller
+                  app.kubernetes.io/instance=jenkins
+                  app.kubernetes.io/managed-by=Helm
+                  app.kubernetes.io/name=jenkins
+                  apps.kubernetes.io/pod-index=0
+                  controller-revision-hash=jenkins-5465cb68b9
+                  statefulset.kubernetes.io/pod-name=jenkins-0
+Annotations:      checksum/config: 83b17a9edc4a578e61708d9c3e9c0278f8ebf8e7333d132922681c72890ffe7d
+Status:           Pending
+IP:               10.244.0.251
+IPs:
+  IP:           10.244.0.251
+Controlled By:  StatefulSet/jenkins
+Init Containers:
+  init:
+    Container ID:  docker://e72acf625bf87a55068dfadbbb68ec095e7a17c857fb1cbd6dade57cc78ff798
+    Image:         jenkins/jenkins:lts
+    Image ID:      docker-pullable://jenkins/jenkins@sha256:0e66af38c9272490ba18757d5d4d41e4ac2160278ae40b69d6da9b5adbe98794
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      sh
+      /var/jenkins_config/apply_config.sh
+    State:          Running
+      Started:      Thu, 07 Aug 2025 18:46:00 -0300
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     500m
+      memory:  1Gi
+    Requests:
+      cpu:        200m
+      memory:     512Mi
+    Environment:  <none>
+    Mounts:
+      /tmp from tmp-volume (rw)
+      /usr/share/jenkins/ref/plugins from plugins (rw)
+      /var/jenkins_config from jenkins-config (rw)
+      /var/jenkins_home from jenkins-home (rw)
+      /var/jenkins_plugins from plugin-dir (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-8swwx (ro)
+Containers:
+  jenkins:
+    Container ID:  
+    Image:         jenkins/jenkins:lts
+    Image ID:      
+    Ports:         8080/TCP, 50000/TCP
+    Host Ports:    0/TCP, 0/TCP
+    Args:
+      --httpPort=8080
+    State:          Waiting
+      Reason:       PodInitializing
+    Ready:          False
+    Restart Count:  0
+    Limits:
+      cpu:     500m
+      memory:  1Gi
+    Requests:
+      cpu:      200m
+      memory:   512Mi
+    Liveness:   http-get http://:http/login delay=0s timeout=5s period=10s #success=1 #failure=5
+    Readiness:  http-get http://:http/login delay=0s timeout=5s period=10s #success=1 #failure=3
+    Startup:    http-get http://:http/login delay=0s timeout=5s period=10s #success=1 #failure=12
+    Environment:
+      SECRETS:                   /run/secrets/additional
+      POD_NAME:                  jenkins-0 (v1:metadata.name)
+      JAVA_OPTS:                 -Dcasc.reload.token=$(POD_NAME) 
+      JENKINS_OPTS:              --webroot=/var/jenkins_cache/war 
+      JENKINS_SLAVE_AGENT_PORT:  50000
+      CASC_JENKINS_CONFIG:       /var/jenkins_home/casc_configs
+    Mounts:
+      /run/secrets/additional from jenkins-secrets (ro)
+      /tmp from tmp-volume (rw)
+      /usr/share/jenkins/ref/plugins/ from plugin-dir (rw)
+      /var/jenkins_cache from jenkins-cache (rw)
+      /var/jenkins_config from jenkins-config (ro)
+      /var/jenkins_home from jenkins-home (rw)
+      /var/jenkins_home/casc_configs from sc-config-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-8swwx (ro)
+  config-reload:
+    Container ID:   
+    Image:          kiwigrid/k8s-sidecar:1.15.0
+    Image ID:       
+    Port:           <none>
+    Host Port:      <none>
+    State:          Waiting
+      Reason:       PodInitializing
+    Ready:          False
+    Restart Count:  0
+    Environment:
+      POD_NAME:           jenkins-0 (v1:metadata.name)
+      LABEL:              jenkins-jenkins-config
+      FOLDER:             /var/jenkins_home/casc_configs
+      NAMESPACE:          infrastructure
+      REQ_URL:            http://localhost:8080/reload-configuration-as-code/?casc-reload-token=$(POD_NAME)
+      REQ_METHOD:         POST
+      REQ_RETRY_CONNECT:  10
+    Mounts:
+      /var/jenkins_home from jenkins-home (rw)
+      /var/jenkins_home/casc_configs from sc-config-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-8swwx (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 False 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  plugins:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  jenkins-config:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      jenkins
+    Optional:  false
+  plugin-dir:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  jenkins-secrets:
+    Type:        Projected (a volume that contains injected data from multiple sources)
+    SecretName:  jenkins
+    Optional:    false
+  jenkins-cache:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  jenkins-home:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  jenkins
+    ReadOnly:   false
+  sc-config-volume:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  tmp-volume:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  kube-api-access-8swwx:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  17m   default-scheduler  Successfully assigned infrastructure/jenkins-0 to minikube
+  Normal  Pulling    17m   kubelet            Pulling image "jenkins/jenkins:lts"
+  Normal  Pulled     17m   kubelet            Successfully pulled image "jenkins/jenkins:lts" in 2.467s (2.467s including waiting). Image size: 472145155 bytes.
+  Normal  Created    17m   kubelet            Created container: init
+  Normal  Started    17m   kubelet            Started container init

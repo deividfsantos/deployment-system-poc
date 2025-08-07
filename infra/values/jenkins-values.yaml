@@ -34,6 +34,7 @@ controller:
       main-config: |
         jenkins:
           systemMessage: "Deployment System Jenkins"
+          numExecutors: 2
           securityRealm:
             local:
               allowsSignup: false
