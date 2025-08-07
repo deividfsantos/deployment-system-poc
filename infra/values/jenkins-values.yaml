@@ -14,20 +14,16 @@ controller:
       memory: "1Gi"
   
   installPlugins:
-    - kubernetes
-    - kubernetes-cli
-    - workflow-aggregator
-    - git
-    - configuration-as-code
-    # - prometheus
-    # - pipeline-stage-view
-    - job-dsl
-    # - pipeline-model-definition
-    # - blueocean:latest
-    # - docker-workflow:latest
-    # - helm:latest
-    # - kubernetes-cli:latest
-    # - pipeline-utility-steps:latest
+    - kubernetes:4358.vcfd9c5a_0a_f51
+    - kubernetes-cli:1.364.vadef8cb8b823
+    - workflow-aggregator:608.v67378e9d3db_1
+    - git:5.7.0
+    - configuration-as-code:1985.vdda_32d0c4ea_b_
+    - job-dsl:1.93
+    # Plugins básicos essenciais
+    - workflow-step-api:706.v518c5dcb_24c0
+    - workflow-api:1382.veca_a_efe062fa_
+    - structs:353.v261ea_40a_80fb_
   
   JCasC:
     configScripts:
