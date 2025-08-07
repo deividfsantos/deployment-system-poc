@@ -25,20 +25,5 @@ resource "kubernetes_config_map" "grafana_dashboards" {
       "application-metrics.json" = file("${path.module}/dashboards/application-metrics.json")
       "infrastructure-metrics.json" = file("${path.module}/dashboards/infrastructure-metrics.json")
     }
-    depends_on = [ helm_release.prometheus ]
-}
-
-resource "helm_release" "jenkins" {
-    name = "jenkins"
-    repository = "https://charts.jenkins.io"
-    chart = "jenkins"
-    namespace = "infrastructure"
-    version = "4.3.0"
-
-    timeout = 12000
-    wait = true
-    values = [
-        file("${path.module}/values/jenkins-values.yaml")
-    ]
-    depends_on = [kubernetes_namespace.infrastructure, helm_release.prometheus]
+    depends_on = [ kubernetes_namespace.infrastructure ]
 }
