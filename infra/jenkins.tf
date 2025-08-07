@@ -14,14 +14,14 @@ resource "helm_release" "jenkins" {
     depends_on = [kubernetes_namespace.infrastructure, helm_release.prometheus]
 }
 
-resource "kubernetes_config_map" "jenkins_pipeline" {
-  metadata {
-    name = "sample-app-pipeline"
-    namespace = "infrastructure"
-  }
+# resource "kubernetes_config_map" "jenkins_pipeline" {
+#   metadata {
+#     name = "sample-app-pipeline"
+#     namespace = "infrastructure"
+#   }
 
-  data = {
-    "Jenkinsfile" = file("../app/sample-app/jenkinsfile")
-  }
-  depends_on = [ helm_release.jenkins ]
-}
+#   data = {
+#     "Jenkinsfile" = file("../app/sample-app/jenkinsfile")
+#   }
+#   depends_on = [ helm_release.jenkins ]
+# }

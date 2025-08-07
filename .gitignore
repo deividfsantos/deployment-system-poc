@@ -1,0 +1,27 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+crash.log
+override.tf
+override.tf.json
+.terraformrc
+terraform.rc
+
+# Go
+# Binários de compilação
+*.exe
+*.darwin
+*.linux
+
+# Binários de teste
+*_test
+
+# Diretório de módulo local
+vendor/
+
+# Arquivos de log de cobertura de teste
+coverage.out
+
+# Dependências de ferramentas de teste
+/pkg/

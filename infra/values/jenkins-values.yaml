@@ -13,16 +13,16 @@ controller:
       cpu: "500m"
       memory: "1Gi"
   
-  serviceType: NodePort
-  nodePort: 32000
-  
   installPlugins:
-    - kubernetes:latest
-    # - workflow-aggregator:latest
-    - git:latest
-    # - configuration-as-code:latest
-    - prometheus:latest
-    - pipeline-stage-view:latest
+    - kubernetes
+    - kubernetes-cli
+    - workflow-aggregator
+    - git
+    - configuration-as-code
+    # - prometheus
+    # - pipeline-stage-view
+    - job-dsl
+    # - pipeline-model-definition
     # - blueocean:latest
     # - docker-workflow:latest
     # - helm:latest
@@ -30,20 +30,13 @@ controller:
     # - pipeline-utility-steps:latest
   
   JCasC:
-    defaultConfig: true
     configScripts:
       main-config: |
         jenkins:
           systemMessage: "Deployment System Jenkins"
-          numExecutors: 2
           securityRealm:
             local:
               allowsSignup: false
-        
-        unclassified:
-          prometheus:
-            path: "/prometheus"
-        
         jobs:
           - script: >
               pipelineJob('sample-app-pipeline') {
@@ -52,19 +45,19 @@ controller:
                     scm {
                       git {
                         remote {
-                          url('https://github.com/your-org/sample-app.git')
+                          url('https://github.com/deividfsantos/deployment-system-poc')
                         }
                         branch('*/main')
                       }
                     }
-                    scriptPath('../app/sample-app/jenkinsfile')
+                    scriptPath('app/sample-app/jenkinsfile')
                   }
                 }
               }
 
-  prometheus:
-    enabled: true
-    serviceMonitorNamespace: "infrastructure"
+  # prometheus:
+  #   enabled: true
+  #   serviceMonitorNamespace: "infrastructure"
 
 persistence:
   enabled: true
