@@ -1,9 +1,7 @@
 controller:
-  # image: "jenkins/jenkins"
-  # tag: "lts"
-  
-  # adminUser: "admin"
-  # adminPassword: "admin123"
+  admin:
+    username: "admin"
+    password: "admin123"
   
   # resources:
   #   requests:
