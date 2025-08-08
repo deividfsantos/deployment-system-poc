@@ -16,7 +16,7 @@ spec:
     - name: docker-config
       mountPath: /kaniko/.docker
   - name: kubectl
-    image: bitnami/kubectl:1.28
+    image: alpine/k8s:1.28.2
     command:
     - sleep
     args:
@@ -62,14 +62,9 @@ spec:
         stage('Deploy') {
             steps {
                 container('kubectl') {
-                    sh """
-                        kubectl set image deployment/${APP_NAME} ${APP_NAME}=${DOCKER_IMAGE}:${IMAGE_TAG} -n ${NAMESPACE} || \
-                        kubectl create deployment ${APP_NAME} --image=${DOCKER_IMAGE}:${IMAGE_TAG} -n ${NAMESPACE}
-                        
-                        kubectl expose deployment ${APP_NAME} --port=80 --target-port=8080 -n ${NAMESPACE} || true
-                        
-                        kubectl wait --for=condition=available --timeout=300s deployment/${APP_NAME} -n ${NAMESPACE}
-                    """
+                    sh 'kubectl version --client'
+                    sh 'kubectl get namespaces | grep applications'
+                    sh 'kubectl create deployment ${APP_NAME} --image=${DOCKER_IMAGE}:${IMAGE_TAG} -n ${NAMESPACE} --dry-run=client -o yaml'
                 }
             }
         }
