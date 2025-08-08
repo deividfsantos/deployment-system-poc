@@ -4,7 +4,6 @@ resource "helm_release" "jenkins" {
     repository = "https://charts.jenkins.io"
     chart = "jenkins"
     namespace = "infrastructure"
-    version = "4.3.0"
 
     timeout = 12000
     wait = true

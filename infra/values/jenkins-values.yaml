@@ -1,32 +1,29 @@
 controller:
-  image: "jenkins/jenkins"
-  tag: "lts"
+  # image: "jenkins/jenkins"
+  # tag: "lts"
   
-  adminUser: "admin"
-  adminPassword: "admin123"
+  # adminUser: "admin"
+  # adminPassword: "admin123"
   
-  resources:
-    requests:
-      cpu: "200m"
-      memory: "512Mi"
-    limits:
-      cpu: "500m"
-      memory: "1Gi"
+  # resources:
+  #   requests:
+  #     cpu: "500m"
+  #     memory: "2Gi"
+  #   limits:
+  #     cpu: "2Gi"
+  #     memory: "4Gi"
   
   installPlugins:
-    # - workflow-aggregator:608.v67378e9d3db_1
-    # - git:5.7.0
-    - configuration-as-code:1985.vdda_32d0c4ea_b_
+    - git:latest
+    - configuration-as-code:latest
+    - kubernetes:latest
+    - workflow-aggregator:latest
+    - job-dsl:latest
+    - kubernetes-cli:latest
   
   JCasC:
     configScripts:
       main-config: |
-        jenkins:
-          systemMessage: "Deployment System Jenkins"
-          numExecutors: 2
-          securityRealm:
-            local:
-              allowsSignup: false
         jobs:
           - script: >
               pipelineJob('sample-app-pipeline') {
@@ -49,13 +46,13 @@ controller:
   #   enabled: true
   #   serviceMonitorNamespace: "infrastructure"
 
-persistence:
-  enabled: true
-  size: "5Gi"
+# persistence:
+#   enabled: true
+#   size: "15Gi"
 
-rbac:
-  create: true
-  readSecrets: true
+# rbac:
+#   create: true
+#   readSecrets: true
 
-serviceAccount:
-  create: true
+# serviceAccount:
+#   create: true
