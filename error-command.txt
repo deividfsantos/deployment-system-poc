@@ -1,3 +1,8 @@
-➜  deployment-system-poc git:(main) ✗ kubectl get pods --all-namespaces | grep jenkins
-infrastructure         jenkins-0                                                0/2     Init:0/1    0               8m10s
-➜  deployment-system-poc git:(main) ✗ 
+[Pipeline] dir
+Running in /home/jenkins/agent/workspace/sample-app-pipeline/applications/sample-app
+[Pipeline] {
+[Pipeline] sh
++ go mod tidy
+/home/jenkins/agent/workspace/sample-app-pipeline/applications/sample-app@tmp/durable-5b6d295e/script.sh.copy: 1: go: not found
+[Pipeline] }
+[Pipeline] // dir
