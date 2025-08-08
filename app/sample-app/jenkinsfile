@@ -62,9 +62,23 @@ spec:
         stage('Deploy') {
             steps {
                 container('kubectl') {
-                    sh 'kubectl version --client'
-                    sh 'kubectl get namespaces | grep applications'
-                    sh 'kubectl create deployment ${APP_NAME} --image=${DOCKER_IMAGE}:${IMAGE_TAG} -n ${NAMESPACE} --dry-run=client -o yaml'
+                    sh '''
+                        echo "Checking kubectl client version..."
+                        kubectl version --client
+
+                        echo "Checking if namespace exists..."
+                        kubectl get namespaces | grep ${NAMESPACE}
+
+                        echo "Updating deployment image or creating deployment if it does not exist..."
+                        kubectl set image deployment/${APP_NAME} ${APP_NAME}=${DOCKER_IMAGE}:${IMAGE_TAG} -n ${NAMESPACE} || \
+                        kubectl create deployment ${APP_NAME} --image=${DOCKER_IMAGE}:${IMAGE_TAG} -n ${NAMESPACE}
+
+                        echo "Exposing deployment as a service (if not already exposed)..."
+                        kubectl expose deployment ${APP_NAME} --port=80 --target-port=8080 -n ${NAMESPACE} || true
+
+                        echo "Waiting for deployment to become available..."
+                        kubectl wait --for=condition=available --timeout=300s deployment/${APP_NAME} -n ${NAMESPACE}
+                    '''
                 }
             }
         }
