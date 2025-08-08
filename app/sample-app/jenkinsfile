@@ -6,19 +6,23 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
-  - name: docker-kubectl
-    image: alpine/k8s:1.28.2
+  - name: docker
+    image: docker:24-dind
+    securityContext:
+      privileged: true
     command:
     - sleep
     args:
     - 99d
-    volumeMounts:
-    - name: docker-sock
-      mountPath: /var/run/docker.sock
-  volumes:
-  - name: docker-sock
-    hostPath:
-      path: /var/run/docker.sock
+    env:
+    - name: DOCKER_TLS_CERTDIR
+      value: ""
+  - name: kubectl
+    image: bitnami/kubectl:1.28
+    command:
+    - sleep
+    args:
+    - 99d
 """
         }
     }
@@ -38,7 +42,7 @@ spec:
     stages {
         stage('Build Docker Image') {
             steps {
-                container('docker-kubectl') {
+                container('docker') {
                     dir('app/sample-app') {
                         sh "docker build -t ${DOCKER_IMAGE}:${IMAGE_TAG} ."
                         sh "docker tag ${DOCKER_IMAGE}:${IMAGE_TAG} ${DOCKER_IMAGE}:latest"
@@ -49,7 +53,7 @@ spec:
 
         stage('Deploy') {
             steps {
-                container('docker-kubectl') {
+                container('kubectl') {
                     sh """
                         kubectl set image deployment/${APP_NAME} ${APP_NAME}=${DOCKER_IMAGE}:${IMAGE_TAG} -n ${NAMESPACE} || \
                         kubectl create deployment ${APP_NAME} --image=${DOCKER_IMAGE}:${IMAGE_TAG} -n ${NAMESPACE}
@@ -64,7 +68,7 @@ spec:
 
         stage('Health Check') {
             steps {
-                container('docker-kubectl') {
+                container('kubectl') {
                     sh """
                         kubectl get pods -l app=${APP_NAME} -n ${NAMESPACE}
                         echo "Application deployed successfully!"
@@ -77,14 +81,14 @@ spec:
     post {
         always {
             script {
-                container('docker-kubectl') {
+                container('kubectl') {
                     sh "echo 'Pipeline completed!'"
                 }
             }
         }
         failure {
             script {
-                container('docker-kubectl') {
+                container('kubectl') {
                     sh "kubectl rollout undo deployment/${APP_NAME} -n ${NAMESPACE} || true"
                 }
             }
