@@ -1,7 +1,10 @@
 controller:
-  admin:
-    username: "admin"
-    password: "admin123"
+  adminUser: "admin"
+  adminPassword: "admin123"
+  
+  serviceAccount:
+    create: false
+    name: jenkins
   
   installPlugins:
     - git:latest
@@ -32,17 +35,10 @@ controller:
                 }
               }
 
-  # prometheus:
-  #   enabled: true
-  #   serviceMonitorNamespace: "infrastructure"
+rbac:
+  create: true
+  readSecrets: true
 
-# persistence:
-#   enabled: true
-#   size: "15Gi"
-
-# rbac:
-#   create: true
-#   readSecrets: true
-
-# serviceAccount:
-#   create: true
+serviceAccount:
+  create: true
+  name: jenkins
