@@ -16,43 +16,69 @@ resource "helm_release" "jenkins" {
     ]
 }
 
-resource "kubernetes_cluster_role" "jenkins_deploy" {
+resource "kubernetes_role" "manage_deployments" {
   metadata {
-    name = "jenkins-deploy"
-  }
-
-  rule {
-    api_groups = [""]
-    resources  = ["namespaces", "services", "pods"]
-    verbs      = ["get", "list", "create", "update", "patch", "delete"]
+    name      = "manage-deployments"
+    namespace = "applications"
   }
 
   rule {
     api_groups = ["apps"]
     resources  = ["deployments"]
-    verbs      = ["get", "list", "create", "update", "patch", "delete"]
+    verbs      = ["get", "list", "watch", "update", "patch", "delete"]
+  }
+  rule {
+    api_groups = [""]
+    resources  = ["pods"]
+    verbs      = ["get", "list", "watch"]
   }
 }
 
-resource "kubernetes_cluster_role_binding" "jenkins_deploy_binding" {
+resource "kubernetes_role_binding" "jenkins_deploy" {
   metadata {
-    name = "jenkins-deploy-binding"
-  }
-
-  role_ref {
-    api_group = "rbac.authorization.k8s.io"
-    kind      = "ClusterRole"
-    name      = kubernetes_cluster_role.jenkins_deploy.metadata[0].name
+    name      = "jenkins-deploy"
+    namespace = "applications"
   }
 
   subject {
     kind      = "ServiceAccount"
-    name      = "jenkins"
+    name      = "default"
     namespace = "infrastructure"
   }
 
-  depends_on = [
-    kubernetes_cluster_role.jenkins_deploy,
-    helm_release.jenkins
-  ]
+  role_ref {
+    kind     = "Role"
+    name     = kubernetes_role.manage_deployments.metadata[0].name
+    api_group = "rbac.authorization.k8s.io"
+  }
+}
+
+resource "kubernetes_cluster_role" "list_namespaces" {
+  metadata {
+    name = "list-namespaces"
+  }
+
+  rule {
+    api_groups = [""]
+    resources  = ["namespaces"]
+    verbs      = ["list"]
+  }
+}
+
+resource "kubernetes_cluster_role_binding" "jenkins_list_namespaces" {
+  metadata {
+    name = "jenkins-list-namespaces"
+  }
+
+  subject {
+    kind      = "ServiceAccount"
+    name      = "default"
+    namespace = "infrastructure"
+  }
+
+  role_ref {
+    kind      = "ClusterRole"
+    name      = kubernetes_cluster_role.list_namespaces.metadata[0].name
+    api_group = "rbac.authorization.k8s.io"
+  }
 }
