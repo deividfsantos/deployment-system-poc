@@ -3,14 +3,6 @@ controller:
     username: "admin"
     password: "admin123"
   
-  # resources:
-  #   requests:
-  #     cpu: "500m"
-  #     memory: "2Gi"
-  #   limits:
-  #     cpu: "2Gi"
-  #     memory: "4Gi"
-  
   installPlugins:
     - git:latest
     - configuration-as-code:latest
