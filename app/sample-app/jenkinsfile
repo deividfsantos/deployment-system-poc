@@ -1,29 +1,30 @@
 pipeline {
     agent {
-        kubernetes {
-            yaml """
+                kubernetes {
+                        yaml """
 apiVersion: v1
 kind: Pod
 spec:
-  containers:
-  - name: kaniko
-    image: gcr.io/kaniko-project/executor:debug
-    command:
-    - sleep
-    args:
-    - 99d
-    volumeMounts:
+    containers:
+    - name: kaniko
+        image: gcr.io/kaniko-project/executor:debug
+        command:
+        - sleep
+        args:
+        - 99d
+        volumeMounts:
+        - name: docker-config
+            mountPath: /kaniko/.docker
+    - name: kubectl
+        image: alpine/k8s:1.28.2
+        command:
+        - sleep
+        args:
+        - 99d
+    volumes:
     - name: docker-config
-      mountPath: /kaniko/.docker
-  - name: kubectl
-    image: alpine/k8s:1.28.2
-    command:
-    - sleep
-    args:
-    - 99d
-  volumes:
-  - name: docker-config
-    emptyDir: {}
+        secret:
+            secretName: regcred
 """
         }
     }
@@ -34,10 +35,10 @@ spec:
     }
     
     environment {
-        APP_NAME = 'sample-app'
-        NAMESPACE = 'applications'
-        DOCKER_IMAGE = "sample-app"
-        IMAGE_TAG = "${BUILD_NUMBER}"
+    APP_NAME = 'sample-app'
+    NAMESPACE = 'applications'
+    DOCKER_IMAGE = "deividsantos/sample-app"
+    IMAGE_TAG = "${BUILD_NUMBER}"
     }
     
     stages {
@@ -46,13 +47,13 @@ spec:
                 container('kaniko') {
                     dir('app/sample-app') {
                         sh '''
-                            # Kaniko build sem precisar de Docker daemon
-                            /kaniko/executor \\
-                                --dockerfile=Dockerfile \\
-                                --context=. \\
-                                --destination=${DOCKER_IMAGE}:${IMAGE_TAG} \\
-                                --destination=${DOCKER_IMAGE}:latest \\
-                                --no-push
+                            echo "Building and pushing Docker image to Docker Hub..."
+                            /kaniko/executor \
+                                --dockerfile=Dockerfile \
+                                --context=. \
+                                --destination=docker.io/deividsantos/sample-app:${IMAGE_TAG} \
+                                --destination=docker.io/deividsantos/sample-app:latest \
+                                --docker-config=/kaniko/.docker
                         '''
                     }
                 }
