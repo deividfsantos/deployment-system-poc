@@ -1,31 +1,31 @@
 pipeline {
     agent {
-                kubernetes {
-                        yaml """
-apiVersion: v1
-kind: Pod
-spec:
-    containers:
-    - name: kaniko
-        image: gcr.io/kaniko-project/executor:debug
-        command:
-        - sleep
-        args:
-        - 99d
-        volumeMounts:
-        - name: docker-config
-            mountPath: /kaniko/.docker
-    - name: kubectl
-        image: alpine/k8s:1.28.2
-        command:
-        - sleep
-        args:
-        - 99d
-    volumes:
-    - name: docker-config
-        secret:
-            secretName: regcred
-"""
+                        kubernetes {
+                                yaml """
+        apiVersion: v1
+        kind: Pod
+        spec:
+            containers:
+                - name: kaniko
+                    image: gcr.io/kaniko-project/executor:debug
+                    command:
+                        - sleep
+                    args:
+                        - 99d
+                    volumeMounts:
+                        - name: docker-config
+                            mountPath: /kaniko/.docker
+                - name: kubectl
+                    image: alpine/k8s:1.28.2
+                    command:
+                        - sleep
+                    args:
+                        - 99d
+            volumes:
+                - name: docker-config
+                    secret:
+                        secretName: regcred
+        """
         }
     }
 
