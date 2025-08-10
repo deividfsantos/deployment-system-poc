@@ -117,23 +117,27 @@ spec:
         stage('Deploy') {
             steps {
                 container('kubectl') {
-                    sh '''
-                        echo "Checking kubectl client version..."
-                        kubectl version --client
+                    dir('app/sample-app') {
+                        sh '''
+                            echo "Checking kubectl client version..."
+                            kubectl version --client
 
-                        echo "Checking if namespace exists..."
-                        kubectl get namespaces | grep ${NAMESPACE}
+                            echo "Checking if namespace exists..."
+                            kubectl get namespaces | grep ${NAMESPACE}
 
-                        echo "Updating deployment image or creating deployment if it does not exist..."
-                        kubectl set image deployment/${APP_NAME} ${APP_NAME}=${DOCKER_IMAGE}:${IMAGE_TAG} -n ${NAMESPACE} || \
-                        kubectl create deployment ${APP_NAME} --image=${DOCKER_IMAGE}:${IMAGE_TAG} -n ${NAMESPACE}
+                            echo "Updating image tag in manifests..."
+                            sed -i "s|image: deividsantos/sample-app:latest|image: deividsantos/sample-app:${IMAGE_TAG}|g" k8s-manifests.yaml
 
-                        echo "Exposing deployment as a service (if not already exposed)..."
-                        kubectl expose deployment ${APP_NAME} --port=80 --target-port=8080 -n ${NAMESPACE} || true
+                            echo "Applying Kubernetes manifests..."
+                            kubectl apply -f k8s-manifests.yaml
 
-                        echo "Waiting for deployment to become available..."
-                        kubectl wait --for=condition=available --timeout=300s deployment/${APP_NAME} -n ${NAMESPACE}
-                    '''
+                            echo "Waiting for deployment to become available..."
+                            kubectl wait --for=condition=available --timeout=300s deployment/${APP_NAME} -n ${NAMESPACE}
+
+                            echo "Verifying ServiceMonitor for Prometheus integration..."
+                            kubectl get servicemonitor sample-app-monitor -n ${NAMESPACE} || echo "ServiceMonitor not found - may need CRD installation"
+                        '''
+                    }
                 }
             }
         }

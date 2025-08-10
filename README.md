@@ -1,16 +1,70 @@
-# Deployment System POC
+# DevOps Kata - Complete Deployment System
 
-A complete Kubernetes-based deployment system with CI/CD pipeline featuring Jenkins, monitoring with Prometheus/Grafana, and automated Docker image builds using Kaniko.
+A production-ready Kubernetes-based deployment system implementing all DevOps Kata requirements with CI/CD pipeline featuring Jenkins, monitoring with Prometheus/Grafana, and Infrastructure as Code using OpenTofu.
+
+## ✅ Challenge Requirements Fulfilled
+
+### Core Components
+- **✅ Jenkins**: Running in Kubernetes cluster with automated CI/CD pipelines
+- **✅ Helm**: Used for deploying Jenkins, Prometheus, and Grafana
+- **✅ OpenTofu**: Infrastructure as Code with automated testing
+- **✅ Minikube**: Kubernetes cluster management
+- **✅ Prometheus**: Metrics collection with automatic service discovery
+- **✅ Grafana**: Data visualization with custom dashboards
+
+### Architecture Requirements
+- **✅ 2 Namespaces**: `infrastructure` (Jenkins, Prometheus, Grafana) and `applications` (deployed apps)
+- **✅ Jenkins in K8s**: Jenkins runs inside the Kubernetes cluster
+- **✅ Pipeline Testing**: Tests run automatically and pipeline fails if tests fail
+- **✅ OpenTofu Testing**: Automated infrastructure tests with validation
+- **✅ Automatic Monitoring**: All deployed apps integrate with Prometheus/Grafana by default
+- **✅ Useful Dashboards**: Application and infrastructure metrics with meaningful data
 
 ## Architecture Overview
 
-This project demonstrates a production-ready deployment system with the following components:
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Kubernetes Cluster                       │
+├─────────────────────────────────────────────────────────────┤
+│  Infrastructure Namespace                                   │
+│  ┌─────────┐ ┌─────────────┐ ┌─────────┐                  │
+│  │ Jenkins │ │ Prometheus  │ │ Grafana │                  │
+│  │   CI/CD │ │  Monitoring │ │Dashboard│                  │
+│  └─────────┘ └─────────────┘ └─────────┘                  │
+├─────────────────────────────────────────────────────────────┤
+│  Applications Namespace                                     │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐          │
+│  │Sample-App-1 │ │Sample-App-2 │ │   Future    │          │
+│  │+ Metrics    │ │+ Metrics    │ │    Apps     │          │
+│  └─────────────┘ └─────────────┘ └─────────────┘          │
+└─────────────────────────────────────────────────────────────┘
+```
 
-- **Application**: Simple Go web application with health check endpoints
-- **CI/CD**: Jenkins pipeline with Kubernetes agents and Kaniko for containerization
-- **Infrastructure**: Kubernetes cluster with separate namespaces for infrastructure and applications
-- **Monitoring**: Prometheus for metrics collection and Grafana for visualization
-- **Container Registry**: Docker Hub integration for image storage
+## New Features & Improvements
+
+### 🚀 Automatic Prometheus Integration
+- **Service Discovery**: Apps are automatically discovered and monitored
+- **Built-in Metrics**: All apps include Prometheus metrics by default
+- **Custom Metrics**: HTTP requests, response times, resource usage
+- **ServiceMonitor**: Automatic Prometheus scraping configuration
+
+### 🧪 OpenTofu Testing
+- **Configuration Validation**: Syntax and logic validation
+- **Plan Testing**: Dry-run execution and validation  
+- **Security Checks**: Basic security scanning
+- **File Verification**: Required files and dependencies check
+
+### 📊 Enhanced Monitoring
+- **Application Dashboards**: Request rates, response times, errors
+- **Infrastructure Dashboards**: CPU, memory, disk usage
+- **Real-time Alerts**: Configurable alerting rules
+- **Cross-namespace Discovery**: Prometheus monitors all namespaces
+
+### 🔄 Improved CI/CD
+- **Fail-Fast Testing**: Pipeline stops immediately on test failure
+- **Automatic Deployment**: Kubernetes manifests with proper configuration
+- **Health Checks**: Liveness and readiness probes
+- **Rollback Capability**: Automatic rollback on deployment failure
 
 ## Project Structure
 

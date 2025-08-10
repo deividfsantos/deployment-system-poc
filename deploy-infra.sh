@@ -1,4 +1,8 @@
 cd infra
+echo "Running OpenTofu tests..."
+./run-tofu-tests.sh
+
+echo "Applying OpenTofu configuration..."
 tofu init
 tofu validate
 # tofu plan
