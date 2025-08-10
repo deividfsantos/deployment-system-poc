@@ -17,7 +17,7 @@ resource "kubernetes_config_map" "grafana_dashboards" {
         name = "custom-dashboards"
         namespace = "infrastructure"
         labels = {
-          grafana_dashboards = "1"
+          grafana_dashboard = "1"
         }
     }
 

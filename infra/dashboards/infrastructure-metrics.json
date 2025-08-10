@@ -1,11 +1,10 @@
 {
-  "dashboard": {
-    "id": null,
-    "title": "Infrastructure Metrics",
-    "tags": ["infrastructure"],
-    "style": "dark",
-    "timezone": "browser",
-    "panels": [
+  "id": null,
+  "title": "Infrastructure Metrics",
+  "tags": ["infrastructure"],
+  "style": "dark",
+  "timezone": "browser",
+  "panels": [
       {
         "id": 1,
         "title": "Cluster CPU Usage",
@@ -111,4 +110,3 @@
     },
     "refresh": "30s"
   }
-}

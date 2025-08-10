@@ -1,11 +1,10 @@
 {
-  "dashboard": {
-    "id": null,
-    "title": "Application Metrics",
-    "tags": ["applications"],
-    "style": "dark",
-    "timezone": "browser",
-    "panels": [
+  "id": null,
+  "title": "Application Metrics",
+  "tags": ["applications"],
+  "style": "dark",
+  "timezone": "browser",
+  "panels": [
       {
         "id": 1,
         "title": "HTTP Requests per Second",
@@ -108,4 +107,3 @@
     },
     "refresh": "30s"
   }
-}
