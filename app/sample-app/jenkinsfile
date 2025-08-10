@@ -15,6 +15,7 @@ spec:
     volumeMounts:
     - name: docker-config
       mountPath: /kaniko/.docker
+      readOnly: true
   - name: kubectl
     image: alpine/k8s:1.28.2
     command:
@@ -25,6 +26,9 @@ spec:
   - name: docker-config
     secret:
       secretName: regcred
+      items:
+      - key: .dockerconfigjson
+        path: config.json
 """
         }
     }
