@@ -8,37 +8,24 @@ spec:
   containers:
   - name: golang
     image: golang:1.21
-    command:
-    - sleep
-    args:
-    - 99d
+    command: [sleep]
+    args: ["99d"]
     workingDir: /workspace
-    env:
-    - name: CGO_ENABLED
-      value: "1"
+    env: [{name: CGO_ENABLED, value: "1"}]
   - name: kaniko
     image: gcr.io/kaniko-project/executor:debug
-    command:
-    - sleep
-    args:
-    - 99d
-    volumeMounts:
-    - name: docker-config
-      mountPath: /kaniko/.docker
-      readOnly: true
+    command: [sleep]
+    args: ["99d"]
+    volumeMounts: [{name: docker-config, mountPath: /kaniko/.docker, readOnly: true}]
   - name: kubectl
     image: alpine/k8s:1.28.2
-    command:
-    - sleep
-    args:
-    - 99d
+    command: [sleep]
+    args: ["99d"]
   volumes:
   - name: docker-config
     secret:
       secretName: regcred
-      items:
-      - key: .dockerconfigjson
-        path: config.json
+      items: [{key: .dockerconfigjson, path: config.json}]
 """
         }
     }
@@ -49,10 +36,10 @@ spec:
     }
     
     environment {
-    APP_NAME = 'sample-app'
-    NAMESPACE = 'applications'
-    DOCKER_IMAGE = "deividsantos/sample-app"
-    IMAGE_TAG = "${BUILD_NUMBER}"
+        APP_NAME = 'sample-app'
+        NAMESPACE = 'applications'
+        DOCKER_IMAGE = "deividsantos/sample-app"
+        IMAGE_TAG = "${BUILD_NUMBER}"
     }
     
     stages {
@@ -61,53 +48,26 @@ spec:
                 container('golang') {
                     dir('app/sample-app') {
                         sh '''
-                            echo "Setting up Go environment..."
-                            go version
-                            echo "CGO_ENABLED: $CGO_ENABLED"
-                            
-                            echo "Downloading dependencies..."
-                            go mod download
-                            go mod verify
-                            
-                            echo "Running code quality checks..."
+                            go mod download && go mod verify
                             go vet ./...
-                            
-                            echo "Running tests with coverage and race detection..."
-                            if go test -race -coverprofile=coverage.out ./... 2>/dev/null; then
-                                echo "Tests with race detection completed successfully"
-                                go test -v -race -coverprofile=coverage.out ./...
-                            else
-                                echo "Race detection not available, running tests without race detection"
-                                go test -v -coverprofile=coverage.out ./...
-                            fi
-                            
-                            echo "Generating coverage report..."
+                            go test -race -coverprofile=coverage.out ./... || go test -v -coverprofile=coverage.out ./...
                             go tool cover -func=coverage.out
-                            
-                            echo "All tests and quality checks passed!"
                         '''
                     }
                 }
             }
-            post {
-                failure {
-                    echo 'Tests failed! Build will not continue.'
-                }
-            }
         }
 
-        stage('Build Docker Image') {
+        stage('Build & Push') {
             steps {
                 container('kaniko') {
                     dir('app/sample-app') {
                         sh '''
-                            echo "Tests passed! Proceeding with Docker image build..."
-                            echo "Building and pushing Docker image to Docker Hub..."
                             /kaniko/executor \
                                 --dockerfile=Dockerfile \
                                 --context=. \
-                                --destination=docker.io/deividsantos/sample-app:${IMAGE_TAG} \
-                                --destination=docker.io/deividsantos/sample-app:latest
+                                --destination=docker.io/${DOCKER_IMAGE}:${IMAGE_TAG} \
+                                --destination=docker.io/${DOCKER_IMAGE}:latest
                         '''
                     }
                 }
@@ -118,59 +78,27 @@ spec:
             steps {
                 container('kubectl') {
                     sh '''
-                        echo "Checking kubectl client version..."
-                        kubectl version --client
-
-                        echo "Checking if namespace exists..."
-                        kubectl get namespaces | grep ${NAMESPACE}
-
-                        echo "Updating deployment image or creating deployment if it does not exist..."
+                        echo "Starting deployment".
                         kubectl set image deployment/${APP_NAME} ${APP_NAME}=${DOCKER_IMAGE}:${IMAGE_TAG} -n ${NAMESPACE} || \
                         kubectl create deployment ${APP_NAME} --image=${DOCKER_IMAGE}:${IMAGE_TAG} -n ${NAMESPACE}
-
-                        echo "Exposing deployment as a service (if not already exposed)..."
                         kubectl expose deployment ${APP_NAME} --port=80 --target-port=8080 -n ${NAMESPACE} || true
-
-                        echo "Waiting for deployment to become available..."
                         kubectl wait --for=condition=available --timeout=300s deployment/${APP_NAME} -n ${NAMESPACE}
-                    '''
-                }
-            }
-        }
-
-        stage('Health Check') {
-            steps {
-                container('kubectl') {
-                    sh """
                         kubectl get pods -l app=${APP_NAME} -n ${NAMESPACE}
-                        echo "Application deployed successfully!"
-                    """
+                    '''
                 }
             }
         }
     }
     
     post {
-        always {
-            script {
-                container('kubectl') {
-                    sh "echo 'Pipeline completed!'"
-                }
-            }
-        }
         failure {
             script {
-                echo 'Pipeline failed!'
-                // Only attempt rollback if we got past the test stage
                 if (env.STAGE_NAME != 'Test') {
                     container('kubectl') {
                         sh "kubectl rollout undo deployment/${APP_NAME} -n ${NAMESPACE} || true"
                     }
                 }
             }
-        }
-        success {
-            echo 'All tests passed and deployment successful!'
         }
     }
 }
