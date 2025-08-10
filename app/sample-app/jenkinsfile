@@ -52,8 +52,7 @@ spec:
                                 --dockerfile=Dockerfile \
                                 --context=. \
                                 --destination=docker.io/deividsantos/sample-app:${IMAGE_TAG} \
-                                --destination=docker.io/deividsantos/sample-app:latest \
-                                --docker-config=/kaniko/.docker
+                                --destination=docker.io/deividsantos/sample-app:latest
                         '''
                     }
                 }
