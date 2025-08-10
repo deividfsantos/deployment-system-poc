@@ -190,10 +190,30 @@ curl http://localhost:8080/health
 
 The Jenkins pipeline automatically:
 
-1. **Build Stage**: Uses Kaniko to build Docker image from source
-2. **Push Stage**: Pushes the image to Docker Hub registry
-3. **Deploy Stage**: Deploys the application to Kubernetes
-4. **Health Check Stage**: Verifies the deployment is healthy
+1. **Test Stage**: Runs Go unit tests, code quality checks, and coverage analysis
+2. **Build Stage**: Uses Kaniko to build Docker image from source (only if tests pass)
+3. **Push Stage**: Pushes the image to Docker Hub registry
+4. **Deploy Stage**: Deploys the application to Kubernetes
+5. **Health Check Stage**: Verifies the deployment is healthy
+
+### Pipeline Features
+
+- **Quality Gates**: Pipeline stops if tests fail, preventing broken code deployment
+- **Test Coverage**: Generates test coverage reports for code quality monitoring
+- **Code Quality**: Runs `go vet` for static analysis and race condition detection
+- **Zero-Downtime Deployment**: Uses Kubernetes rolling updates
+- **Automated Rollback**: Rolls back deployment on failure
+
+### Test Stage Details
+
+The test stage includes:
+- **Unit Tests**: All Go unit tests with verbose output (`go test -v`)
+- **Race Detection**: Tests run with race condition detection (`-race` flag)
+- **Code Coverage**: Generates coverage report (`-coverprofile=coverage.out`)
+- **Static Analysis**: Runs `go vet` to catch potential issues
+- **Dependency Verification**: Verifies Go module integrity (`go mod verify`)
+
+**Important**: If any test fails, the pipeline stops and no deployment occurs.
 
 ### Manual Pipeline Execution
 
@@ -299,8 +319,30 @@ Execute unit tests:
 
 ```bash
 cd app/sample-app
+
+# Run all tests
 go test ./...
+
+# Run tests with verbose output
+go test -v ./...
+
+# Run tests with coverage
+go test -v -coverprofile=coverage.out ./...
+go tool cover -html=coverage.out -o coverage.html
+
+# Run tests with race detection
+go test -race ./...
+
+# Run static analysis
+go vet ./...
 ```
+
+### Test Coverage
+
+The application includes comprehensive tests for:
+- **HTTP Handlers**: Tests for all API endpoints
+- **Response Validation**: Ensures correct HTTP status codes and response bodies
+- **Error Handling**: Tests for error scenarios and edge cases
 
 ## Security Considerations
 

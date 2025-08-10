@@ -6,6 +6,13 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
+  - name: golang
+    image: golang:1.21-alpine
+    command:
+    - sleep
+    args:
+    - 99d
+    workingDir: /workspace
   - name: kaniko
     image: gcr.io/kaniko-project/executor:debug
     command:
@@ -46,12 +53,43 @@ spec:
     }
     
     stages {
+        stage('Test') {
+            steps {
+                container('golang') {
+                    dir('app/sample-app') {
+                        sh '''
+                            echo "Setting up Go environment..."
+                            go version
+                            
+                            echo "Downloading dependencies..."
+                            go mod download
+                            go mod verify
+                            
+                            echo "Running code quality checks..."
+                            go vet ./...
+                            
+                            echo "Running tests with coverage..."
+                            go test -v -race -coverprofile=coverage.out ./...
+                            go tool cover -func=coverage.out
+                            
+                            echo "All tests and quality checks passed!"
+                        '''
+                    }
+                }
+            }
+            post {
+                failure {
+                    echo 'Tests failed! Build will not continue.'
+                }
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 container('kaniko') {
                     dir('app/sample-app') {
-                        sh 'cat /kaniko/.docker/config.json || echo "config.json not found"'
                         sh '''
+                            echo "Tests passed! Proceeding with Docker image build..."
                             echo "Building and pushing Docker image to Docker Hub..."
                             /kaniko/executor \
                                 --dockerfile=Dockerfile \
@@ -110,13 +148,17 @@ spec:
         }
         failure {
             script {
-                container('kubectl') {
-                    sh "kubectl rollout undo deployment/${APP_NAME} -n ${NAMESPACE} || true"
+                echo 'Pipeline failed!'
+                // Only attempt rollback if we got past the test stage
+                if (env.STAGE_NAME != 'Test') {
+                    container('kubectl') {
+                        sh "kubectl rollout undo deployment/${APP_NAME} -n ${NAMESPACE} || true"
+                    }
                 }
             }
         }
         success {
-            echo 'Deployment successful!'
+            echo 'All tests passed and deployment successful!'
         }
     }
 }
