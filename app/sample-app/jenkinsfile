@@ -46,6 +46,7 @@ spec:
             steps {
                 container('kaniko') {
                     dir('app/sample-app') {
+                        sh 'cat /kaniko/.docker/config.json || echo "config.json not found"'
                         sh '''
                             echo "Building and pushing Docker image to Docker Hub..."
                             /kaniko/executor \

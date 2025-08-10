@@ -20,5 +20,12 @@ helm repo add jenkins https://charts.jenkins.io
 helm repo add stable https://charts.helm.sh/stable
 helm repo update
 
+kubectl create secret docker-registry regcred \
+    --docker-server=https://index.docker.io/v1/ \
+    --docker-username=deividsantos \
+    --docker-password=<token> \
+    --docker-email=deividfranciscosantos@hotmail.com \
+    -n infrastructure   
+
 kubectl get nodes
 kubectl get pods --all-namespaces

@@ -25,12 +25,17 @@ resource "kubernetes_role" "manage_deployments" {
   rule {
     api_groups = ["apps"]
     resources  = ["deployments"]
-    verbs      = ["get", "list", "watch", "update", "patch", "delete"]
+    verbs      = ["get", "list", "watch", "update", "patch", "delete", "create"]
   }
   rule {
     api_groups = [""]
     resources  = ["pods"]
     verbs      = ["get", "list", "watch"]
+  }
+  rule {
+    api_groups = [""]
+    resources  = ["services"]
+    verbs      = ["get", "list", "watch", "create"]
   }
 }
 
