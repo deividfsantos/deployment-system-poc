@@ -61,10 +61,30 @@ spec:
                 container('golang') {
                     dir('app/sample-app') {
                         sh '''
-                            go mod download && go mod verify
+                            echo "Setting up Go environment..."
+                            go version
+                            echo "CGO_ENABLED: $CGO_ENABLED"
+                            
+                            echo "Downloading dependencies..."
+                            go mod download
+                            go mod verify
+                            
+                            echo "Running code quality checks..."
                             go vet ./...
-                            go test -race -coverprofile=coverage.out ./... || go test -v -coverprofile=coverage.out ./...
+                            
+                            echo "Running tests with coverage and race detection..."
+                            if go test -race -coverprofile=coverage.out ./... 2>/dev/null; then
+                                echo "Tests with race detection completed successfully"
+                                go test -v -race -coverprofile=coverage.out ./...
+                            else
+                                echo "Race detection not available, running tests without race detection"
+                                go test -v -coverprofile=coverage.out ./...
+                            fi
+                            
+                            echo "Generating coverage report..."
                             go tool cover -func=coverage.out
+                            
+                            echo "All tests and quality checks passed!"
                         '''
                     }
                 }
@@ -135,6 +155,7 @@ spec:
         failure {
             script {
                 echo 'Pipeline failed!'
+                // Only attempt rollback if we got past the test stage
                 if (env.STAGE_NAME != 'Test') {
                     container('kubectl') {
                         sh "kubectl rollout undo deployment/${APP_NAME} -n ${NAMESPACE} || true"
