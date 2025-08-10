@@ -5,6 +5,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
@@ -25,6 +27,7 @@ func main() {
 
 	http.HandleFunc("/", helloHandler)
 	http.HandleFunc("/health", healthHandler)
+	http.Handle("/metrics", promhttp.Handler())
 
 	log.Printf("Server starting on port %s", port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))

@@ -1,3 +1,46 @@
+## Como Cumprir o Desafio DevOps Kata
+
+### 1. Estrutura de Namespaces
+- O cluster Kubernetes terá dois namespaces principais:
+   - `infrastructure`: Jenkins, Prometheus, Grafana, etc.
+   - `applications`: aplicações implantadas.
+
+### 2. Deploy da Infraestrutura
+Execute:
+```sh
+./deploy-infra.sh
+```
+Isso irá provisionar os namespaces, Jenkins, Prometheus, Grafana e demais recursos via OpenTofu e Helm.
+
+### 3. Deploy da Aplicação
+O Jenkins pipeline irá:
+- Rodar testes automatizados da aplicação Go.
+- Falhar se os testes falharem.
+- Fazer build e push da imagem Docker.
+- Implantar a aplicação via Helm no namespace `applications`.
+
+### 4. Testes Automatizados de Infraestrutura
+Entre em `infra/tests` e execute:
+```sh
+cd infra/tests
+tofu test
+```
+Isso executa testes automatizados para os módulos OpenTofu.
+
+### 5. Métricas e Dashboards
+- A aplicação expõe métricas Prometheus em `/metrics`.
+- O Prometheus está configurado para coletar essas métricas automaticamente.
+- Dashboards do Grafana são importados automaticamente e mostram dados úteis da aplicação e infraestrutura.
+
+### 6. Acesso aos Serviços
+- **Jenkins:** Exposto via NodePort no namespace `infrastructure`.
+- **Grafana:** Exposto via NodePort (porta 30000). Login padrão: admin/admin.
+- **Prometheus:** Exposto via NodePort.
+
+### 7. Deploy de Novas Aplicações
+Basta criar um novo diretório em `app/`, adicionar um `Dockerfile`, `jenkinsfile`, e um Helm chart semelhante ao exemplo em `sample-app`.
+
+---
 # Deployment System POC
 
 A complete Kubernetes-based deployment system with CI/CD pipeline featuring Jenkins, monitoring with Prometheus/Grafana, and automated Docker image builds using Kaniko.
