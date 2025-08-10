@@ -1,0 +1,62 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Sample App Metrics - DevOps Kata",
+    "tags": ["sample-app", "devops-kata"],
+    "timezone": "browser",
+    "panels": [
+      {
+        "id": 1,
+        "title": "HTTP Requests per Second",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(http_requests_total[5m])",
+            "legendFormat": "{{method}} {{path}}"
+          }
+        ],
+        "yAxes": [{"label": "requests/sec"}],
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0}
+      },
+      {
+        "id": 2,
+        "title": "Total Requests",
+        "type": "singlestat",
+        "targets": [
+          {
+            "expr": "sum(http_requests_total)",
+            "legendFormat": "Total"
+          }
+        ],
+        "gridPos": {"h": 4, "w": 6, "x": 12, "y": 0}
+      },
+      {
+        "id": 3,
+        "title": "Application Status",
+        "type": "singlestat",
+        "targets": [
+          {
+            "expr": "up{job=\"sample-app\"}",
+            "legendFormat": "Up"
+          }
+        ],
+        "gridPos": {"h": 4, "w": 6, "x": 12, "y": 4}
+      },
+      {
+        "id": 4,
+        "title": "Requests by Endpoint",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "sum by (path) (http_requests_total)",
+            "legendFormat": "{{path}}"
+          }
+        ],
+        "yAxes": [{"label": "total requests"}],
+        "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8}
+      }
+    ],
+    "time": {"from": "now-15m", "to": "now"},
+    "refresh": "5s"
+  }
+}

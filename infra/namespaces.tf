@@ -1,11 +1,11 @@
-resource "kubernetes_namespace" "infrastructure" {
+resource "kubernetes_namespace" "infra" {
     metadata { 
-        name = "infrastructure"
+        name = "infra"
     }
 }
 
-resource "kubernetes_namespace" "applications" {
+resource "kubernetes_namespace" "apps" {
     metadata { 
-        name = "applications"
+        name = "apps"
     }
 }
