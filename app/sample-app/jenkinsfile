@@ -49,10 +49,10 @@ spec:
     }
     
     environment {
-    APP_NAME = 'sample-app'
-    NAMESPACE = 'applications'
-    DOCKER_IMAGE = "deividsantos/sample-app"
-    IMAGE_TAG = "${BUILD_NUMBER}"
+        APP_NAME = 'sample-app'
+        NAMESPACE = 'applications'
+        DOCKER_IMAGE = "deividsantos/sample-app"
+        IMAGE_TAG = "${BUILD_NUMBER}"
     }
     
     stages {
@@ -61,27 +61,12 @@ spec:
                 container('golang') {
                     dir('app/sample-app') {
                         sh '''
-                            echo "Setting up Go environment..."
-                            go version
-                            echo "CGO_ENABLED: $CGO_ENABLED"
-                            
-                            echo "Downloading dependencies..."
                             go mod download
-                            go mod verify
-                            
-                            echo "Running code quality checks..."
+                            go mod verify                            
                             go vet ./...
                             
-                            echo "Running tests with coverage and race detection..."
-                            if go test -race -coverprofile=coverage.out ./... 2>/dev/null; then
-                                echo "Tests with race detection completed successfully"
-                                go test -v -race -coverprofile=coverage.out ./...
-                            else
-                                echo "Race detection not available, running tests without race detection"
-                                go test -v -coverprofile=coverage.out ./...
-                            fi
-                            
-                            echo "Generating coverage report..."
+                            echo "Running tests with coverage"
+                            go test -v -coverprofile=coverage.out ./...
                             go tool cover -func=coverage.out
                             
                             echo "All tests and quality checks passed!"
@@ -101,7 +86,6 @@ spec:
                 container('kaniko') {
                     dir('app/sample-app') {
                         sh '''
-                            echo "Tests passed! Proceeding with Docker image build..."
                             echo "Building and pushing Docker image to Docker Hub..."
                             /kaniko/executor \
                                 --dockerfile=Dockerfile \
@@ -145,13 +129,6 @@ spec:
     }
     
     post {
-        always {
-            script {
-                container('kubectl') {
-                    sh "echo 'Pipeline completed!'"
-                }
-            }
-        }
         failure {
             script {
                 echo 'Pipeline failed!'
@@ -162,6 +139,9 @@ spec:
                     }
                 }
             }
+        }
+        success {
+            echo 'All tests passed and deployment successful!'
         }
     }
 }

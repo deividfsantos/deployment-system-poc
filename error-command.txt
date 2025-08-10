@@ -1,8 +1,0 @@
-[Pipeline] dir
-Running in /home/jenkins/agent/workspace/sample-app-pipeline/applications/sample-app
-[Pipeline] {
-[Pipeline] sh
-+ go mod tidy
-/home/jenkins/agent/workspace/sample-app-pipeline/applications/sample-app@tmp/durable-5b6d295e/script.sh.copy: 1: go: not found
-[Pipeline] }
-[Pipeline] // dir
