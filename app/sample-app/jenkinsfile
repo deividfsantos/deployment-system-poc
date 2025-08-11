@@ -61,6 +61,7 @@ spec:
                 container('golang') {
                     dir('app/sample-app') {
                         sh '''
+                            go mod tidy
                             go mod download
                             go mod verify                            
                             go vet ./...
