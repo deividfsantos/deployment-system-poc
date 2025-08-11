@@ -25,9 +25,9 @@ func main() {
 		port = "8080"
 	}
 
-	mux := http.NewServerMux()
+	mux := http.NewServeMux()
 
-	mux.HandleFunc("/helloapp/sample-app/sample-app", helloHandler)
+	mux.HandleFunc("/hello", helloHandler)
 	mux.HandleFunc("/health", healthHandler)
 	mux.Handle("/metrics", promhttp.Handler())
 
