@@ -12,5 +12,11 @@ kubectl create secret docker-registry regcred \
     --docker-password=<docker> \
     -n infrastructure
 
-kubectl port-forward -n infrastructure svc/jenkins 8080:8080
-# kubectl port-forward -n infrastructure svc/prometheus-grafana 8090:80 -n infrastructure   
+kubectl port-forward -n infrastructure svc/jenkins 8080:8080 &
+kubectl port-forward -n infrastructure svc/prometheus-grafana 8090:80 -n infrastructure &
+
+echo "Port-forwards started:"
+echo "- Jenkins: http://localhost:8080"
+echo "- Grafana: http://localhost:8090"
+echo ""
+echo "To stop port-forwards, run: pkill -f 'kubectl port-forward'"   
