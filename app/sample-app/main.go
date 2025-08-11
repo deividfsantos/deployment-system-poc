@@ -25,10 +25,12 @@ func main() {
 		port = "8080"
 	}
 
-	http.HandleFunc("/helloapp/sample-app/sample-app", helloHandler)
-	http.HandleFunc("/health", healthHandler)
-	http.Handle("/metrics", promhttp.Handler())
+	mux := http.NewServerMux()
+
+	mux.HandleFunc("/helloapp/sample-app/sample-app", helloHandler)
+	mux.HandleFunc("/health", healthHandler)
+	mux.Handle("/metrics", promhttp.Handler())
 
 	log.Printf("Server starting on port %s", port)
-	log.Fatal(http.ListenAndServe(":"+port, nil))
+	log.Fatal(http.ListenAndServe(":"+port, mux))
 }
