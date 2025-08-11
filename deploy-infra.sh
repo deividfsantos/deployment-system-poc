@@ -4,7 +4,7 @@ tofu validate
 # tofu plan
 tofu apply -auto-approve
 echo "Infrastructure deployment completed"
-tofu output
+# tofu output
 
 kubectl create secret docker-registry regcred \
     --docker-server=https://index.docker.io/v1/ \
@@ -15,8 +15,7 @@ kubectl create secret docker-registry regcred \
 kubectl port-forward -n infrastructure svc/jenkins 8080:8080 &
 kubectl port-forward -n infrastructure svc/prometheus-grafana 8090:80 -n infrastructure &
 
-echo "Port-forwards started:"
+echo "Infrastructure port-forwards started:"
 echo "- Jenkins: http://localhost:8080"
 echo "- Grafana: http://localhost:8090"
-echo ""
 echo "To stop port-forwards, run: pkill -f 'kubectl port-forward'"   

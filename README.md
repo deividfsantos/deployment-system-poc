@@ -386,3 +386,8 @@ For issues and questions:
 - Check the troubleshooting section above
 - Review logs using the debugging commands
 - Open an issue in the GitHub repository
+
+## Sample app deployment
+```bash
+kubectl port-forward -n applications svc/sample-app 8081:80 &
+```
