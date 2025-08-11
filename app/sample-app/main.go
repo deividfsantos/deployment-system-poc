@@ -25,7 +25,7 @@ func main() {
 		port = "8080"
 	}
 
-	http.HandleFunc("/", helloHandler)
+	http.HandleFunc("/helloapp/sample-app/sample-app", helloHandler)
 	http.HandleFunc("/health", healthHandler)
 	http.Handle("/metrics", promhttp.Handler())
 
