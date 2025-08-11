@@ -27,3 +27,36 @@ resource "kubernetes_config_map" "grafana_dashboards" {
     }
     depends_on = [ kubernetes_namespace.infrastructure ]
 }
+
+resource "kubernetes_manifest" "sample_app_servicemonitor" {
+  manifest = {
+    apiVersion = "monitoring.coreos.com/v1"
+    kind       = "ServiceMonitor"
+    metadata = {
+      name      = "sample-app-metrics"
+      namespace = "infrastructure"
+      labels = {
+        app     = "sample-app"
+        release = "prometheus"
+      }
+    }
+    spec = {
+      selector = {
+        matchLabels = {
+          app = "sample-app"
+        }
+      }
+      namespaceSelector = {
+        matchNames = ["applications"]
+      }
+      endpoints = [
+        {
+          port     = "http"
+          interval = "30s"
+          path     = "/metrics"
+        }
+      ]
+    }
+  }
+  depends_on = [helm_release.prometheus]
+}

@@ -7,12 +7,16 @@
   "panels": [
       {
         "id": 1,
-        "title": "HTTP Requests per Second",
+        "title": "Application Activity",
         "type": "graph",
         "targets": [
           {
-            "expr": "rate(http_requests_total[5m])",
-            "legendFormat": "{{method}} {{status}}"
+            "expr": "rate(promhttp_metric_handler_requests_total[5m])",
+            "legendFormat": "Metrics endpoint requests/sec"
+          },
+          {
+            "expr": "go_goroutines",
+            "legendFormat": "Active goroutines"
           }
         ],
         "xAxis": {
@@ -20,7 +24,7 @@
         },
         "yAxes": [
           {
-            "label": "requests/sec",
+            "label": "requests/sec & count",
             "show": true
           }
         ],
@@ -33,17 +37,21 @@
       },
       {
         "id": 2,
-        "title": "Response Time (95th percentile)",
+        "title": "Memory & GC",
         "type": "graph",
         "targets": [
           {
-            "expr": "histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m]))",
-            "legendFormat": "95th percentile"
+            "expr": "go_memstats_alloc_bytes / 1024 / 1024",
+            "legendFormat": "Memory allocated (MB)"
+          },
+          {
+            "expr": "rate(go_gc_duration_seconds_count[5m]) * 60",
+            "legendFormat": "GC events per minute"
           }
         ],
         "yAxes": [
           {
-            "label": "seconds",
+            "label": "MB & events/min",
             "show": true
           }
         ],
