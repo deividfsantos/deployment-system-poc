@@ -114,7 +114,6 @@ spec:
                             echo "Deploying application using Helm..."
                             helm upgrade --install ${APP_NAME} ./helm-chart \
                                 --namespace ${NAMESPACE} \
-                                --create-namespace \
                                 --set image.tag=${IMAGE_TAG} \
                                 --wait \
                                 --timeout=300s

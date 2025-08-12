@@ -86,7 +86,7 @@ resource "kubernetes_cluster_role" "list_namespaces" {
   rule {
     api_groups = [""]
     resources  = ["namespaces"]
-    verbs      = ["list"]
+    verbs      = ["list", "get"]
   }
 }
 
