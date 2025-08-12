@@ -469,26 +469,6 @@ kubectl delete namespace applications
 - **Go Dependencies**: Updated to use Go 1.18+ with Prometheus client library
 - **Improved Documentation**: Updated README with current project structure and features
 
-### What's New
-- Structured Kubernetes deployments using Helm charts
-- Application metrics collection and monitoring capabilities
-- Enhanced pipeline configuration with better error handling
-- Comprehensive testing and verification procedures
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly using the verification steps
-5. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
----
-
 ## Support
 
 For issues and questions:
