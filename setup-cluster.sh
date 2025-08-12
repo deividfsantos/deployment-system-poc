@@ -7,9 +7,6 @@ minikube start \
     --disk-size=5GB \
     --kubernetes-version=v1.33.0
 
-# kubectl create namespace infrastructure --dry-run=client -o yaml | kubectl apply -f -
-# kubectl create namespace applications --dry-run=client -o yaml | kubectl apply -f -
-
 minikube addons enable ingress
 minikube addons enable metrics-server
 minikube addons enable dashboard

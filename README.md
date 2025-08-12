@@ -96,7 +96,6 @@ kubectl create secret docker-registry regcred \
   --docker-server=https://index.docker.io/v1/ \
   --docker-username=<YOUR_DOCKERHUB_USERNAME> \
   --docker-password=<YOUR_DOCKERHUB_TOKEN> \
-  --docker-email=<YOUR_EMAIL> \
   -n infrastructure
 ```
 
@@ -177,7 +176,7 @@ kubectl get secret jenkins -o jsonpath="{.data.jenkins-admin-password}" -n infra
 
 Default credentials:
 - Username: `admin`
-- Password: (use the command above to retrieve)
+- Password: `admin123`
 
 ### 3. Access Grafana
 
