@@ -6,11 +6,12 @@ A complete Kubernetes-based deployment system with CI/CD pipeline featuring Jenk
 
 This project demonstrates a production-ready deployment system with the following components:
 
-- **Application**: Simple Go web application with health check endpoints
-- **CI/CD**: Jenkins pipeline with Kubernetes agents and Kaniko for containerization
+- **Application**: Simple Go web application with health check endpoints and Prometheus metrics
+- **CI/CD**: Jenkins pipeline with Kubernetes agents and Kaniko for secure containerization
 - **Infrastructure**: Kubernetes cluster with separate namespaces for infrastructure and applications
 - **Monitoring**: Prometheus for metrics collection and Grafana for visualization
 - **Container Registry**: Docker Hub integration for image storage
+- **Deployment**: Helm charts for structured Kubernetes deployments
 
 ## Project Structure
 
@@ -21,7 +22,14 @@ This project demonstrates a production-ready deployment system with the followin
 │       ├── jenkinsfile      # CI/CD pipeline definition
 │       ├── main.go          # Application entry point
 │       ├── main_test.go     # Unit tests
-│       └── go.mod           # Go module definition
+│       ├── go.mod           # Go module definition
+│       ├── go.sum           # Go module checksum
+│       └── helm-chart/      # Helm chart for application deployment
+│           ├── Chart.yaml   # Chart metadata
+│           ├── values.yaml  # Default values for the chart
+│           └── templates/   # Kubernetes resource templates
+│               ├── deployment.yaml
+│               └── service.yaml
 ├── infra/                   # Terraform infrastructure as code
 │   ├── jenkins.tf           # Jenkins deployment configuration
 │   ├── monitoring.tf        # Prometheus/Grafana setup
@@ -92,12 +100,43 @@ kubectl create secret docker-registry regcred \
   -n infrastructure
 ```
 
+### 5. Deploy Application (Manual Deployment)
+
+Alternatively, you can deploy the application manually using Helm:
+
+```bash
+# Deploy using Helm chart
+helm install sample-app app/sample-app/helm-chart/ -n applications --create-namespace
+
+# Or upgrade an existing deployment
+helm upgrade sample-app app/sample-app/helm-chart/ -n applications
+```
+
+## Application Details
+
+### Go Application Features
+
+The sample Go application includes:
+
+- **HTTP Server**: Lightweight web server with multiple endpoints
+- **Prometheus Integration**: Built-in metrics endpoint using `prometheus/client_golang`
+- **Health Monitoring**: Dedicated health check endpoint for Kubernetes probes
+- **Request Logging**: Comprehensive request logging for debugging
+- **Environment Configuration**: Configurable port via environment variables
+
+### Dependencies
+
+The application uses minimal dependencies:
+- **Go 1.18+**: Modern Go version with generics support
+- **Prometheus Client**: `github.com/prometheus/client_golang v1.17.0` for metrics
+
 ## Application Endpoints
 
 The sample application exposes the following endpoints:
 
 - **Root Endpoint**: `GET /` - Returns "Hello World! - Sample App POC"
 - **Health Check**: `GET /health` - Returns "OK" for health monitoring
+- **Metrics**: `GET /metrics` - Prometheus metrics endpoint for monitoring
 
 ## Testing and Verification
 
@@ -184,6 +223,10 @@ curl http://localhost:8080
 # Test health endpoint
 curl http://localhost:8080/health
 # Expected output: OK
+
+# Test metrics endpoint
+curl http://localhost:8080/metrics
+# Expected output: Prometheus metrics in text format
 ```
 
 ## CI/CD Pipeline
@@ -230,6 +273,37 @@ The pipeline is defined in `app/sample-app/jenkinsfile` and includes:
 - **Kaniko Container**: For secure Docker image builds
 - **kubectl Container**: For Kubernetes deployments
 - **Docker Hub Integration**: Automated image registry operations
+
+## Helm Chart
+
+The application includes a Helm chart located in `app/sample-app/helm-chart/` for Kubernetes deployment:
+
+### Chart Structure
+- **Chart.yaml**: Chart metadata and version information
+- **values.yaml**: Default configuration values
+- **templates/**: Kubernetes resource templates
+  - `deployment.yaml`: Application deployment configuration
+  - `service.yaml`: Service configuration for load balancing
+
+### Helm Commands
+
+```bash
+# Install the application
+helm install sample-app app/sample-app/helm-chart/ -n applications --create-namespace
+
+# Upgrade the application
+helm upgrade sample-app app/sample-app/helm-chart/ -n applications
+
+# Uninstall the application
+helm uninstall sample-app -n applications
+
+# View current values
+helm get values sample-app -n applications
+
+# Test the chart
+helm lint app/sample-app/helm-chart/
+helm template sample-app app/sample-app/helm-chart/
+```
 
 ## Monitoring and Observability
 
@@ -308,10 +382,24 @@ Run the application locally for development:
 
 ```bash
 cd app/sample-app
+
+# Download dependencies
+go mod download
+
+# Run the application
 go run main.go
+
+# Or build and run
+go build -o sample-app .
+./sample-app
 ```
 
 Access locally at: http://localhost:8080
+
+The application will start on port 8080 by default, or you can set a custom port:
+```bash
+PORT=9090 go run main.go
+```
 
 ### Running Tests
 
@@ -356,15 +444,36 @@ The application includes comprehensive tests for:
 To remove all deployed resources:
 
 ```bash
+# Remove application using Helm (if deployed with Helm)
+helm uninstall sample-app -n applications
+
 # Remove application deployments
 kubectl delete namespace applications
 
-# Remove infrastructure (keep monitoring for other projects)
+# Remove Jenkins infrastructure
 helm uninstall jenkins -n infrastructure
+
+# Remove monitoring stack
+helm uninstall prometheus -n infrastructure
 
 # Or remove everything
 kubectl delete namespace infrastructure
+kubectl delete namespace applications
 ```
+
+## Recent Updates
+
+### Latest Changes
+- **Helm Chart Integration**: Added comprehensive Helm chart for application deployment
+- **Prometheus Metrics**: Enhanced application with built-in Prometheus metrics endpoint
+- **Go Dependencies**: Updated to use Go 1.18+ with Prometheus client library
+- **Improved Documentation**: Updated README with current project structure and features
+
+### What's New
+- Structured Kubernetes deployments using Helm charts
+- Application metrics collection and monitoring capabilities
+- Enhanced pipeline configuration with better error handling
+- Comprehensive testing and verification procedures
 
 ## Contributing
 
