@@ -16,6 +16,14 @@ resource "helm_release" "jenkins" {
     ]
 }
 
+# ServiceAccount for Jenkins deployments
+resource "kubernetes_service_account" "jenkins_deployer" {
+  metadata {
+    name      = "jenkins-deployer"
+    namespace = "infrastructure"
+  }
+}
+
 resource "kubernetes_role" "manage_deployments" {
   metadata {
     name      = "manage-deployments"
@@ -24,7 +32,7 @@ resource "kubernetes_role" "manage_deployments" {
 
   rule {
     api_groups = ["apps"]
-    resources  = ["deployments"]
+    resources  = ["deployments", "replicasets"]
     verbs      = ["get", "list", "watch", "update", "patch", "delete", "create"]
   }
   rule {
@@ -35,7 +43,19 @@ resource "kubernetes_role" "manage_deployments" {
   rule {
     api_groups = [""]
     resources  = ["services"]
-    verbs      = ["get", "list", "watch", "create"]
+    verbs      = ["get", "list", "watch", "create", "update", "patch", "delete"]
+  }
+  # Permissions for Helm secrets (releases are stored as secrets)
+  rule {
+    api_groups = [""]
+    resources  = ["secrets"]
+    verbs      = ["get", "list", "watch", "create", "update", "patch", "delete"]
+  }
+  # Permissions for ConfigMaps (Helm may use them)
+  rule {
+    api_groups = [""]
+    resources  = ["configmaps"]
+    verbs      = ["get", "list", "watch", "create", "update", "patch", "delete"]
   }
 }
 
@@ -47,8 +67,8 @@ resource "kubernetes_role_binding" "jenkins_deploy" {
 
   subject {
     kind      = "ServiceAccount"
-    name      = "default"
-    namespace = "infrastructure"
+    name      = kubernetes_service_account.jenkins_deployer.metadata[0].name
+    namespace = kubernetes_service_account.jenkins_deployer.metadata[0].namespace
   }
 
   role_ref {
@@ -77,8 +97,8 @@ resource "kubernetes_cluster_role_binding" "jenkins_list_namespaces" {
 
   subject {
     kind      = "ServiceAccount"
-    name      = "default"
-    namespace = "infrastructure"
+    name      = kubernetes_service_account.jenkins_deployer.metadata[0].name
+    namespace = kubernetes_service_account.jenkins_deployer.metadata[0].namespace
   }
 
   role_ref {
