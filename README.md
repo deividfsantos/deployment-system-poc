@@ -500,3 +500,9 @@ For issues and questions:
 ```bash
 kubectl port-forward -n applications svc/sample-app 8081:80 &
 ```
+
+## Delete namespaces
+```bash
+kubectl delete namespace applications
+kubectl delete namespace infrastructure
+```
